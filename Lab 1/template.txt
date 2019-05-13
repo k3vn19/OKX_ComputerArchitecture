@@ -1,0 +1,58 @@
+﻿Templates:
+
+
+for (int i=0;i!=n;i++){
+//statements A
+} 
+
+
+get     r0      0       # r0 = i = 0
+loop:
+//statements A
+get     r1      n       # r1 = n
+get     r2      1       # r2 = 1
+add     r0      r2      # r0(i) = i+1
+get     r2      0       # r2 = 0
+add     r2      r0      # r2 = r0(i)
+## reason why we use r2 to copy i is because we are going to xor it   ## later, we dont want to lose either i or n in the loop, so we copy i ## in r2 for comparison
+xor     r2      r1      # r2 = 0 if i==n
+jnz     r2      loop    # if i!=n loop
+
+
+
+
+if (statement C){       // c is 0 if false, true otherwise
+        Statements A
+} else {
+        Statements B
+}
+Statements C
+
+
+get     r0      C
+jz      else
+//statements A
+get     r0      1
+jnz     end_if
+else:
+//Statements B
+end_if
+
+
+arr[i]                     # arr is 1 byte, 8bits, stored in r0
+
+
+sl   r0   r0        7-i 
+sr   r0   r0        7     
+
+
+#
+    input MSW = 0   0   0   0   0   b11 b10 b9 
+          LSW =  b8 b7 b6 b5 b4 b3   b2   b1, where bx denotes a data bit
+
+
+# to get b11, MSW is at 0
+ld   0    r0
+#sl   r0   r0        5 
+#sr   r0   r0        7
+sr    r0    r0   2

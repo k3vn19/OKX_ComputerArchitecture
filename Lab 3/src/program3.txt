@@ -1,0 +1,199 @@
+﻿Program 3:
+
+
+get     r0      6          # r0 = 128
+get     r1      7        # r1 = 32
+add     r0      r1     # r0 = &datamem[160] which contains pattern
+st      r0      r0      # r0 = datamem[160]
+shft    r0  1   3       # shl 4: r0 = datamem[160][3:0] = pattern
+shft    r0  1   1
+get     r1      0       # r1 = ctb
+get     r2      0       # r2 = cto
+
+
+get     r3      0       # r3 = i = 0
+loop1: #(available registers: r4~r7)
+get     r4      0       # r4 = addcto = 0
+get     r5      6       # r5 = &datamem[128]
+add     r5      r3      # r5 = &datamem[128+i]
+ld      r5      r5      # r5 = datamem[128+i]
+
+
+  # hardcoding loop2
+                        #(available registers: r6,r7)
+get     r6      0       # r6 = 0
+add     r6      r5      # r6 = datamem[128+i]
+shft    r6  1   0
+shft    r6  0   3       # r6 = datamem[128+i][7:4]
+shft    r6  0   1
+xor     r6      r0      # r6 = 0 if datamem[128+i][7:4]==pattern
+get     r7      4       # jump distance, pc+=4
+jnz     r6      r7      # if not match skip adding ctb&addcto
+get     r7      1          # r7 = 1
+add     r1      r7      # ctb++
+add     r4      r7      # addcto++
+
+
+get     r6      0       # r6 = 0
+add     r6      r5      # r6 = datamem[128+i]
+shft    r6  1   1
+shft    r6  0   3       # r6 = datamem[128+i][6:3]
+shft    r6  0   1
+xor     r6      r0      # r6 = 0 if datamem[128+i][6:3]==pattern
+get     r7      4       # jump distance, pc+=4
+jnz     r6      r7      # if not match skip adding ctb&addcto
+get     r7      1          # r7 = 1
+add     r1      r7      # ctb++
+add     r4      r7      # addcto++
+
+
+get     r6      0       # r6 = 0
+add     r6      r5      # r6 = datamem[128+i]
+shft    r6  1   2
+shft    r6  0   3       # r6 = datamem[128+i][5:2]
+shft    r6  0   1
+xor     r6      r0      # r6 = 0 if datamem[128+i][5:2]==pattern
+get     r7      4       # jump distance, pc+=4
+jnz     r6      r7      # if not match skip adding ctb&addcto
+get     r7      1
+add     r1      r7      # ctb++
+add     r4      r7      # addcto++
+
+
+get     r6      0       # r6 = 0
+add     r6      r5      # r6 = datamem[128+i]
+shft    r6  1   3
+shft    r6  0   3       # r6 = datamem[128+i][4:1]
+shft    r6  0   1
+xor     r6      r0      # r6 = 0 if datamem[128+i][4:1]==pattern
+get     r7      4       # jump distance, pc+=4
+jnz     r6      r7      # if not match skip adding ctb&addcto
+get     r7      1          # r7 = 1
+add     r1      r7      # ctb++
+add     r4      r7      # addcto++
+
+
+get     r6      0       # r6 = 0
+add     r6      r5      # r6 = datamem[128+i]
+shft    r6  1   3
+shft    r6  1   1
+shft    r6  0   3       # r6 = datamem[128+i][3:0]
+shft    r6  0   1
+xor     r6      r0      # r6 = 0 if datamem[128+i][3:0]==pattern
+get     r7      4       # jump distance, pc+=4
+jnz     r6      r7      # if not match skip adding ctb&addcto
+get     r7      1
+add     r1      r7      # ctb++
+add     r4      r7      # addcto++
+// end of hardcoded loop2
+
+
+get     r6      5       # jump offset of 3
+jz      r4      r6      # if not addcto, skip adding cto
+get     r7      1
+add     r2      r7      # cto++
+
+
+get     r4      7       # r4 = 32
+get     r5      1       # r5 = 1
+add     r3      r5      # r3 = i = i+1;
+get     r5      0       # r5 = 0
+add     r5      r3      # r5 = r3 + 0 = i
+xor     r5      r4      # r5 = 0 if i == 32
+jnz     r5      loop1   # if i!=32 loop
+end_loop1:
+
+
+// ctb, cto correctly calculated, storing them; r3=32 now
+get     r4      6       # r4 = &datamem[128]
+add     r4      r3      # r4 = &datamem[160]
+add     r4      r3      # r4 = &datamem[192]
+st      r1      r4      # datamem[192] = ctb
+get     r3      0       
+add     r4      r3      # r4 = &datamem[193]
+st      r2      r4      # datamem[193] = cto
+
+
+//calculating cts (available registers: r2~r7); r1 = cts = ctb
+get     r2      0       # r2 = i = 0
+loop3: (available registers: r3~r7)
+get     r3      6
+add     r3      r2      # r3 = &datamem[128+i]
+get     r4      1
+add     r4      r3      # r4 = &datamem[128+i+1]
+ld      r3      r3      # r3 = datamem[128+i]
+ld      r4      r4      # r4 = datamem[128+i+1]
+
+
+// hardcoded loop4 (available registers: r5~r7)
+get     r5      0
+add     r5      r3      # r5 = datamem[128+i]
+shft    r5  1   3       # r5 = datamem[128+i][7:7]
+shft    r5  1   3
+shft    r5  1   1
+get     r6      0
+add     r6      r4      # r6 = datamem[128+i+1]
+shft    r6  0   3
+shft    r6  0   2
+shft    r6  1   3       # r6 = datamem[128+i+1][2:0]<<1
+shft    r6  1   1
+add     r6      r5      # r6 = concatenate b2[2:0], b1[7:7]
+xor     r6      r0      # compare it with pattern, r6 = 0 if match
+jnz     r6      3       # skip adding cts if not match
+get     r5      1
+add     r1      r5      # cts++
+
+
+get     r5      0
+add     r5      r3      # r5 = datamem[128+i]
+shft    r5  1   3       # r5 = datamem[128+i][7:6]
+shft    r5  1   3 
+get     r6      0
+add     r6      r4      # r6 = datamem[128+i+1]
+shft    r6  0   3
+shft    r6  0   3
+shft    r6  1   3       # r6 = datamem[128+i+1][1:0]<<2
+shft    r6  1   1 
+add     r6      r5      # r6 = concatenate b2[1:0], b1[7:6]
+xor     r6      r0      # compare it with pattern, r6 = 0 if match
+jnz     r6      3       # skip adding cts if not match
+get     r5      1
+add     r1      r5      # cts++
+
+
+get     r5      0
+add     r5      r3      # r5 = datamem[128+i]
+shft    r5  1   3       # r5 = datamem[128+i][7:5]
+shft    r5  1   2 
+get     r6      0
+add     r6      r4      # r6 = datamem[128+i+1]
+shft    r6  0   3
+shft    r6  0   3
+shft    r6  0   1
+shft    r6  1   3       # r6 = datamem[128+i+1][0:0]<<1
+shft    r6  1   1
+add     r6      r5      # r6 = concatenate b2[0:0], b1[7:5]
+xor     r6      r0      # compare it with pattern, r6 = 0 if match
+jnz     r6      3       # skip adding cts if not match
+get     r5      1
+add     r1      r5      # cts++
+
+
+get     r3      7      # r3 = 32
+get     r4      1
+add     r2      r4      # r2 = i = i+1
+get     r4      1
+add     r4      r2      # r4 = i+1
+xor     r4      r3      # r4 = 0 if i==31
+jnz     r2      loop3   # if i!=31 loop
+end_loop3:
+
+
+// cts correctly calculated, storing it; r3=32 now
+get     r4      6     # r4 = &datamem[128]
+add     r4      r3      # r4 = &datamem[160]
+add     r4      r3      # r4 = &datamem[192]
+get     r3      1
+add     r4      r3      # r4 = &datamem[193]
+add     r4      r3      # r4 = &datamem[194]
+st      r1      r4      # datamem[194] = cts
