@@ -6,10 +6,11 @@ module top(
                reset,
   output logic done);
 
+  //may need to change # of bits for pc counter and jump
 // list of interconnecting wires/buses w/ respective bit widths 
   wire signed[7:0] bamt;	    // PC jump
   wire[7:0] PC;				    // program counter
-  wire[6:0] inst;			    // machine code
+  wire[8:0] inst;			    // machine code
   wire[7:0] dm_out,			    // data memory
             dm_in,			   
             dm_adr;
@@ -22,14 +23,11 @@ module top(
   wire[2:0] op;	                // opcode
   wire[1:0] ptr_a,			    // ref_file pointers
             ptr_b,			   
-			ptr_w;
-  wire      z;	                // alu zero flag
   logic     rf_we;              // reg_file write enable
   wire      ldr,			    // load mode (mem --> reg_file)
             str;			    // store (reg_file --> mem)
   assign    op    = inst[6:4];
   assign    ptr_a = inst[3:2];
-  assign    ptr_w = inst[3:2];
   assign    ptr_b = inst[1:0];
   assign    dm_in = do_a;	    // rf ==> dm
   assign    in_a  = do_a; 		// rf ==> ALU
@@ -51,13 +49,13 @@ module top(
   lut_pc lp1(				     // maps 2 bits to 8
     .ptr  (lutpc_ptr),		    
 	.dout (bamt));	             // branch distance in PC
-							   
+
+						
   pc pc1(						 // program counter
     .clk (clk) ,
 	.reset, 
 	.op   ,					     // from inst_mem
 	.bamt (bamt) ,		         // from lut_pc
-	.z    ,					     // zero flag from ALU
 	.PC );					     // to PC module
 
   imem im1(					     // instruction memory
@@ -66,19 +64,22 @@ module top(
 
   assign done = inst[6:4]==kSTR; // store result & hit done flag
 
-  ls_dec  dc1(				     // load and store decode
-    .op  ,
-	.str ,					     // store turns on memory write enable
-	.ldr					     // load turns on reg_file write enable
-    );
+//  ls_dec  dc1(				     // load and store decode
+//    .op  ,
+//	.str ,					     // store turns on memory write enable
+//	.ldr					     // load turns on reg_file write enable
+//    );
+
+	Control ctr(
+	
+	);
 
   rf rf1(						 // reg file -- one write, two reads
     .clk             ,
 	.di   (rf_din)   ,			 // data to be written in
 	.we   (rf_we)      ,		 // write enable
-	.ptr_w(inst[3:2])   ,		 // write pointer = one of the read ptrs
 	.ptr_a(inst[3:2])   ,		 // read pointers 
-	.ptr_b(inst[1:0])   ,
+	.ptr_b(inst[1:0])   ,			//write/read pointer
 	.do_a               ,        // to ALU
 	.do_b  						 // to ALU immediate input switch
   );
@@ -89,11 +90,11 @@ module top(
 	.in_a ,						 // alu inputs
 	.in_b ,
 	.rslt ,						 // alu output
-	.co (),						 // carry out -- not connected, not used
-	.z  );						 // zero flag   in_a=0
+	.co ()						 // carry out -- not connected, not used
+	  );						 // zero flag   in_a=0
 
   lut_m lm1(					 // lookup table for data mem address
-    .ptr(inst[1:0]),			 // select one of up to four addresses
+    .ptr(inst[7:0]),			 // select one of up to eight addresses
 	.dm_adr						 // send this (8-bit) address to data mem
   );
 
