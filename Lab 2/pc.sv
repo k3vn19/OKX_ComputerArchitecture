@@ -3,7 +3,6 @@
 import definitions::*;
 module pc (
   input        [2:0] op, 		 // opcodes
-  input              z,		     // zero flag from ALU
   input signed [7:0] bamt,		 // how far/where to jump or branch
   input              clk,	     // clk -- PC advances and memory/reg_file writes are clocked 
   input              reset,		 // overrides all else, forces PC to 0 (start of program)
@@ -11,8 +10,10 @@ module pc (
 
 //  assign jz = z && op == JZ;
 //  assign jnz = !z && op == JNZ;
-    assign brel = z && op==BZR;	 // do a relative branch iff ALU z flag is set on a BZR instruction
-    assign babs = z && op==BZA;	 // same for absolute branch
+//    assign brel = z && op==BZR;	 // do a relative branch iff ALU z flag is set on a BZR instruction
+//    assign babs = z && op==BZA;	 // same for absolute branch
+
+//	assign jamt = z && 
 
   always_ff @(posedge clk) 
     if(reset)					 // resetting to start=0

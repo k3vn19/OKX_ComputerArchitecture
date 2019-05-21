@@ -1,17 +1,35 @@
 // 3 to 8 MUX
 
-module decoder_3to8(Y7, Y6, Y5, Y4, Y3, Y2, Y1, Y0, A, B, C, en);
-     output Y7, Y6, Y5, Y4, Y3, Y2, Y1, Y0;     
-	  input  A, B, C;     
-	  input  en;     
-	  assign {Y7,Y6,Y5,Y4,Y3,Y2,Y1,Y0} = 
-	  ( {en,A,B,C} == 4'b1000) ? 8'b1111_1110 :       
-	  ( {en,A,B,C} == 4'b1001) ? 8'b1111_1101 :                                        
-	  ( {en,A,B,C} == 4'b1010) ? 8'b1111_1011 :                                      
-	  ( {en,A,B,C} == 4'b1011) ? 8'b1111_0111 :                                       
-	  ( {en,A,B,C} == 4'b1100) ? 8'b1110_1111 :                                        
-	  ( {en,A,B,C} == 4'b1101) ? 8'b1101_1111 :                                        
-	  ( {en,A,B,C} == 4'b1110) ? 8'b1011_1111 :                                        
-	  ( {en,A,B,C} == 4'b1111) ? 8'b0111_1111 :                                                                   
-										  8'b1111_1111;  
+module decoder_3to8(
+	  input[2:0] sel,     
+	  output[15:0] out     
+	  );
+	  
+	  casez(sel)
+		3'b000: begin
+			return 16'd0;
+		end
+	   3'b001: begin
+			return 16'd1;
+		end
+		3'b010: begin
+			return 16'd200;
+		end
+		3'b011: begin
+			return 16'd204;
+		end
+		3'b100: begin
+			return 16'd4;
+		end
+		3'b101: begin
+			return 16'd3;
+		end
+		3'b110: begin
+			return 16'd128;
+		end
+		default: begin
+			return 16'd32;
+		end
+		
+	  
 	  endmodule
