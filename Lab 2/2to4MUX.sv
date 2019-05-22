@@ -1,6 +1,6 @@
 // 2 to 4 MUX
 
-module mux_2to4(Y, A,B,C,D sel);
+module mux_2to4(Y, A,B,C,D, sel);
 	output [15:0] Y;  
    input  [15:0] A, B, C ,D;   
 	input  sel;     

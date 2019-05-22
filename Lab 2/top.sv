@@ -22,7 +22,7 @@ module top(
   wire[7:0] rf_din;	            // reg_file input
   wire[2:0] op;	                // opcode
   wire[1:0] ptr_a,			    // ref_file pointers
-            ptr_b,			   
+            ptr_b;			   
   logic     rf_we;              // reg_file write enable
   wire      ldr,			    // load mode (mem --> reg_file)
             str;			    // store (reg_file --> mem)
