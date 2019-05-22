@@ -7,7 +7,7 @@ module top(
   output logic done);
 
   //may need to change # of bits for pc counter and jump
-// list of interconnecting wires/buses w/ respective bit widths 
+  // list of interconnecting wires/buses w/ respective bit widths 
   wire signed[7:0] bamt;	    // PC jump
   wire[9:0] PC;				    // program counter
   wire[8:0] inst;			    // machine code
@@ -44,21 +44,22 @@ module top(
 	.A (rslt),					// output of ALU
 	.B (m2_out),				//output of 3:8 mux
 	.C (dm_out),				// output of data mem
-	.D (16'b0),				// dummy value, isn't ever used
+	.D (8'b0),				// dummy value, isn't ever used
 	.sel (MemtoReg),
 	.Y (m1_out)
   );
+  
   mux_3to8 mux2(
 	.sel (inst[2:0]),
 	.out (m2_out)
   );
   mux_2to1 mux3(
 	.A(do_b),
-	.B(inst[1:0]),			// ASK TUTOR, sign ext
+	.B(inst[7:0]),			// this is the shamt, but we pass in 8 bits to sign extend. 
+								// only the lowest 2 bits will actually be used
 	.sel(ALUSrc),
-	.Y(in_b);
+	.Y(in_b)
   );
-  
   
 						
   pc pc1(						 // program counter
@@ -73,12 +74,6 @@ module top(
 	 .inst);				     // output = 7-bit (yours is 9) machine code
 
   assign done = inst[6:4]==kSTR; // store result & hit done flag
-
-//  ls_dec  dc1(				     // load and store decode
-//    .op  ,
-//	.str ,					     // store turns on memory write enable
-//	.ldr					     // load turns on reg_file write enable
-//    );
 
 	Control ctr(
 	.inst,

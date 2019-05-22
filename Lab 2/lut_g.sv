@@ -1,5 +1,6 @@
 // lookup table for get instruction
 // lets us access values to help with computing addresses
+//dont need anymore cause we have 3:8 MUX
 module lut_g(
   input [2:0] ptr,
   output logic[7:0] dm_adr);

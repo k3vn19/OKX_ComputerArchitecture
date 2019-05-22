@@ -5,15 +5,15 @@ module alu (
   input       [2:0] op,			    // opcode
   input       [7:0] in_a,		    // operands in
                     in_b,
-  output logic[15:0] rslt);
+  output logic[7:0] rslt);
   op_mne op_mnemonic;			    // type enum: used for convenient waveform viewing
 
   always_comb begin
 	rslt  = 8'b0;
     case(op)						// selective override one or more defaults
 	 kADD: {rslt} = in_a + in_b;
-	 KLSH: {rslt} = in_a << in_b;
-	 KRSH: {rslt} = in_a >> in_b;
+	 KLSH: {rslt} = in_a << in_b[1:0];
+	 KRSH: {rslt} = in_a >> in_b[1:0];
 	 KXOR: {rslt} = in_a ^ in_b;
 	 
 //     kLDR: rslt = in_a;		    // load reg_file from data_mem
