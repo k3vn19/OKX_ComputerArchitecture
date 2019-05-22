@@ -2,14 +2,10 @@
 // in class demo -- instruction memory ROM
 // This is the case statement (if ... else if ... else if ...) version;
 //   good for small lookup tables and arrays, awkward for larger ones, perhaps
-module imem(
-  input       [7:0] PC,      // program counter = pointer to imem
-  output logic[8:0] inst);	 // machine code values (yours are 9 bits; my demo is only 7)
-  always_comb case(PC)		//maybe use an array of instructions
-//		0: inst = 'b00
-  
-  
-  
+//module imem(
+//  input       [7:0] PC,      // program counter = pointer to imem
+//  output logic[6:0] inst);	 // machine code values (yours are 9 bits; my demo is only 7)
+//  always_comb case(PC)
 //    0: inst = 'b001_00_00;   // CLR R0  //R0=0  
 //    1: inst = 'b001_11_00;   // CLR R3  //R3=0
 //    2: inst = 'b000_01_00;   // LDR R1, 3  (LUTm[0] = 3)  R1 = mem[3]
@@ -20,6 +16,19 @@ module imem(
 //    7: inst = 'b100_11_10;   // BZR R3, -3 (LUTp[2] = -3) PC = PC-3 if R3=0 
 //    8: inst = 'b110_00_10;   // STR R0, 5  (LUTm[2] =  5) mem[5] = R0
 //    9: inst = 'b111_11_11;   // halt
-	default: inst = 'b111_11_11; // covers all cases not included in the above list
-  endcase
+//	default: inst = 'b111_11_11; // covers all cases not included in the above list
+//  endcase
+//endmodule
+
+module InstROM #(parameter A=10, W=9) (
+  input       [A-1:0] PC,
+  output logic[W-1:0] inst);
+  
+  logic[W-1:0] inst_rom[2**(A)];
+  always_comb inst = inst_rom[InstAddress];
+ 
+  initial begin
+  	$readmemb("machine_code.txt",inst_rom);
+  end 
+  
 endmodule
