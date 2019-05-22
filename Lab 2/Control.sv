@@ -1,5 +1,5 @@
 module Control(
-  input [5:0] Instr_i,
+  input [8:0] Instr_i,
   output logic      Jnz,
 							Jz,
 			        MemRead,
@@ -22,37 +22,37 @@ ALUSrc    = 0;
 Regwrite  = 1;
 ALUOp     = 0;
 casez(Instr_i)
-  6'b000000: begin	//load
+  9'b000??????: begin	//load
 	MemtoReg = 2'b10;
   end
-  6'b000001: begin	 // store
+  9'b001??????: begin	 // store
 	MemWrite = 1;
-	RegWrite = 0;
+	Regwrite = 0;
 	MemRead = 0;
   end
-  6'b000010: begin	//XOR
+  9'b010??????: begin	//XOR
 	ALUOp = 3'b011;
   end
-  6'b000011: begin	//JZ
+  9'b100??????: begin	//JZ
    Jz = 1;
-	RegWrite = 0;
+	Regwrite = 0;
   end
-  6'b000100: begin		//Jnz
+  9'b101??????: begin		//Jnz
    Jnz = 1;
-	RegWrite = 0;
+	Regwrite = 0;
   end
-  6'b000101: begin		//get
+  9'b110??????: begin		//get
 	MemtoReg = 2'b01;
   end
-  6'b000110: begin		//right shft
+  9'b111???1??: begin		//right shft
 	ALUSrc = 1;
 	ALUOp = 3'b010;
   end
-  6'b000111: begin		//left shft
+  9'b111???0??: begin		//left shft
 	ALUSrc = 1;
 	ALUOp = 3'b001;
   end
-  6'b001000: begin	//ADD
+  9'b011??????: begin	//ADD
 	ALUOp = 3'b000;
   end
 

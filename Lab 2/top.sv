@@ -9,47 +9,57 @@ module top(
   //may need to change # of bits for pc counter and jump
 // list of interconnecting wires/buses w/ respective bit widths 
   wire signed[7:0] bamt;	    // PC jump
-  wire[7:0] PC;				    // program counter
+  wire[9:0] PC;				    // program counter
   wire[8:0] inst;			    // machine code
+  wire 		jnz,					//CONTROL wires
+				jz;
+  wire[1:0]  MemtoReg,
+				MemWrite,
+				ALUSrc,
+				RegWrite;
+  wire[2:0] ALUOp;
   wire[7:0] dm_out,			    // data memory
             dm_in,			   
             dm_adr;
   wire[7:0] in_a,			    // alu inputs
             in_b,			   
-			rslt,               // alu output
+				rslt,               // alu output
             do_a,	            // reg_file outputs
-			do_b;			   
+			   do_b;			   
   wire[7:0] rf_din;	            // reg_file input
   wire[2:0] op;	                // opcode
   wire[1:0] ptr_a,			    // ref_file pointers
             ptr_b;			   
-  logic     rf_we;              // reg_file write enable
-  wire      ldr,			    // load mode (mem --> reg_file)
-            str;			    // store (reg_file --> mem)
-  assign    op    = inst[6:4];
-  assign    ptr_a = inst[3:2];
-  assign    ptr_b = inst[1:0];
-  assign    dm_in = do_a;	    // rf ==> dm
-  assign    in_a  = do_a; 		// rf ==> ALU
-  always_comb case (op)
-    kLDR, kCLR, kACC, kACI: rf_we = 1;
-    default: rf_we = 0;
-  endcase
-// load: rf data input from mem; else: from ALU out 
-  assign    rf_din = ldr? dm_out : rslt;
-// select immediate or rf for second ALU input
-  assign    in_b  = op==kACI? -1 : do_b; 
-// PC branch values
-  logic[1:0] lutpc_ptr;
-  always_comb case(op)
-    kBZR: lutpc_ptr = 2;	     // relative
-	kBZA: lutpc_ptr = 1;	     // absolute
-	default: lutpc_ptr = 0;	     // biz-as-usual
-  endcase 					   
+  
+
+  wire[15:0]			m1_out,	// MUX 2 to 4
+							m2_out;
+ 
+	//TODO
   lut_pc lp1(				     // maps 2 bits to 8
     .ptr  (lutpc_ptr),		    
 	.dout (bamt));	             // branch distance in PC
-
+  
+  mux_2to4 mux1(
+	.A (rslt),					// output of ALU
+	.B (m2_out),				//output of 3:8 mux
+	.C (dm_out),				// output of data mem
+	.D (16'b0),				// dummy value, isn't ever used
+	.sel (MemtoReg),
+	.Y (m1_out)
+  );
+  mux_3to8 mux2(
+	.sel (inst[2:0]),
+	.out (m2_out)
+  );
+  mux_2to1 mux3(
+	.A(do_b),
+	.B(inst[1:0]),			// ASK TUTOR, sign ext
+	.sel(ALUSrc),
+	.Y(in_b);
+  );
+  
+  
 						
   pc pc1(						 // program counter
     .clk (clk) ,
@@ -71,26 +81,31 @@ module top(
 //    );
 
 	Control ctr(
-	
+	.inst,
+	.jz,
+	.jnz,
+	.MemtoReg,
+	.MemWrite,
+	.ALUSrc,
+	.RegWrite,
+	.ALUOp
 	);
 
   rf rf1(						 // reg file -- one write, two reads
     .clk             ,
-	.di   (rf_din)   ,			 // data to be written in
-	.we   (rf_we)      ,		 // write enable
-	.ptr_a(inst[3:2])   ,		 // read pointers 
-	.ptr_b(inst[1:0])   ,			//write/read pointer
+	.di   (m1_out)   ,			 // data to be written in
+	.we   (RegWrite)      ,		 // write enable
+	.ptr_a(inst[5:3])   ,		 // read pointers 
+	.ptr_b(inst[2:0])   ,			//write/read pointer
 	.do_a               ,        // to ALU
 	.do_b  						 // to ALU immediate input switch
   );
 
   alu au1(						 // execution (ALU) unit
-    .ci (1'b0),					 // not using carry-in in this program
-	.op ,						 // ALU operation
-	.in_a ,						 // alu inputs
-	.in_b ,
-	.rslt ,						 // alu output
-	.co ()						 // carry out -- not connected, not used
+	.op (ALUSrc),						 // ALU operation
+	.in_a(do_a) ,						 // alu inputs
+	.in_b(m3_out) ,
+	.rslt						 // alu output
 	  );						 // zero flag   in_a=0
 
   lut_m lm1(					 // lookup table for data mem address
@@ -99,10 +114,11 @@ module top(
   );
 
   dmem dm1(						 // data memory
-    .clk         ,
-	.we  (str)   ,				 // only time to write = store 
-	.addr(dm_adr),				 // from LUT
-	.di  (dm_in) ,				 // data to store (from reg_file)
+   // .ReadMem(1'b1),
+	 .clk         ,
+	.memWrite  (MemWrite)   ,				 // only time to write = store 
+	.addr(m3_out),				 // from LUT
+	.di  (do_a) ,				 // data to store (from reg_file)
 	.dout(dm_out));				 // data out (for loads)
 
 endmodule

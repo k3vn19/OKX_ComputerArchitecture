@@ -2,19 +2,14 @@
 // CSE141L Win 2018
 import definitions::*;              // declares ALU opcodes 
 module alu (			         
-  input             ci,			    // carry in
   input       [2:0] op,			    // opcode
   input       [7:0] in_a,		    // operands in
                     in_b,
-  output logic[7:0] rslt,		    // result out
-  output logic      co,			    // carry out
-  output logic      z); 		    // zero flag, like ARM Z flag
+  output logic[15:0] rslt);
   op_mne op_mnemonic;			    // type enum: used for convenient waveform viewing
 
   always_comb begin
-    co    = 1'b0;				    // defaults
 	rslt  = 8'b0;
-	z     = 1'b0;
     case(op)						// selective override one or more defaults
 	 kADD: {rslt} = in_a + in_b;
 	 KLSH: {rslt} = in_a << in_b;
