@@ -9,7 +9,7 @@ module top(
   //may need to change # of bits for pc counter and jump
   // list of interconnecting wires/buses w/ respective bit widths 
   wire signed[7:0] bamt;	    // PC jump
-  wire[9:0] PC;				    // program counter
+  wire[10:0] PC;				    // program counter
   wire[8:0] inst;			    // machine code
   wire 		jnz,					//CONTROL wires
 				jz;
@@ -66,14 +66,16 @@ module top(
     .clk (clk) ,
 	.reset, 
 	.op   ,					     // from inst_mem
-	.bamt (bamt) ,		         // from lut_pc
+//	.bamt (bamt) ,		         // from lut_pc
+	.do_a,							//reg 1
+	.dout(bamt),							//from LUT
 	.PC );					     // to PC module
 
   imem im1(					     // instruction memory
      .PC   ,				     // pointer in = PC
 	 .inst);				     // output = 7-bit (yours is 9) machine code
 
-  assign done = inst[6:4]==kSTR; // store result & hit done flag
+//  assign done = inst[6:4]==kSTR; // store result & hit done flag
 
 	Control ctr(
 	.inst,

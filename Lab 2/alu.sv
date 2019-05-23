@@ -12,9 +12,9 @@ module alu (
 	rslt  = 8'b0;
     case(op)						// selective override one or more defaults
 	 kADD: {rslt} = in_a + in_b;
-	 KLSH: {rslt} = in_a << in_b[1:0];
-	 KRSH: {rslt} = in_a >> in_b[1:0];
-	 KXOR: {rslt} = in_a ^ in_b;
+	 kLSH: {rslt} = in_a << in_b[1:0];
+	 kRSH: {rslt} = in_a >> in_b[1:0];
+	 kXOR: {rslt} = in_a ^ in_b;
 	 
 //     kLDR: rslt = in_a;		    // load reg_file from data_mem
 //	  kACC: {co,rslt} = in_a+in_b+ci;  // add w/ carry in and out

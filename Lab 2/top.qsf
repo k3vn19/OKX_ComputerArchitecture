@@ -65,7 +65,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE rf.sv
 set_global_assignment -name SYSTEMVERILOG_FILE pc.sv
 set_global_assignment -name SYSTEMVERILOG_FILE lut_pc.sv
 set_global_assignment -name SYSTEMVERILOG_FILE lut_m.sv
-set_global_assignment -name SYSTEMVERILOG_FILE ls_dec.sv
 set_global_assignment -name SYSTEMVERILOG_FILE imem.sv
 set_global_assignment -name SYSTEMVERILOG_FILE dmem.sv
 set_global_assignment -name SYSTEMVERILOG_FILE definitions.sv
