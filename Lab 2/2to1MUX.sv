@@ -10,5 +10,4 @@ module mux_2to1(
 			Y = A;      
 		else         
 			Y = B;  
-
 endmodule
