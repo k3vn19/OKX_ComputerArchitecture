@@ -1,23 +1,26 @@
 // CSE141L Win 2018  in-class demo
 // 4-element reg_file (yours will have up to 16 elements)
-module rf(
-  input             clk,
-  input  [7:0]      di,					    // data to load into reg_file
-  input             we,				      // write enable
-  input  [2:0]      ptr_a,				  // address to write to and read
-			              ptr_b,					// address to read 
-  output logic[7:0] do_a,           // 2 data values to be read from reg_file
-                    do_b);
+module reg_file #(parameter W=8, D=3)(
+  input           clk,
+                  write_en,
+  input  [ D-1:0] raddrA,
+                  raddrB,
+						waddr,
+  input  [ W-1:0] data_in,
+  output [ W-1:0] data_outA,
+  output logic [W-1:0] data_outB
+    );
 
-  logic  [7:0] core[8];				      // our reg_file itself -- 8x4 2-dimensional array
+// W bits wide [W-1:0] and 2**4 registers deep 	 
+logic [W-1:0] registers[2**D];	  // or just registers[16] if we know D=4 always
 
-  always_ff @(posedge clk) begin
-    if(we) begin		                  // write only on posedge clock and only if we=1
-      core[ptr_a] <= di;
-    end
+// combinational reads w/ blanking of address 0
+assign      data_outA = /*raddrA?*/ registers[raddrA];// : '0;	 // can't read from addr 0, just like MIPS
+always_comb data_outB = raddrB? registers[raddrB] : 'b0;
 
-    always_comb do_a = core[ptr_a];		// reads are continuous/combinational instead of 
-    always_comb do_b = core[ptr_b];   //   clocked/sequential
-  end
+// sequential (clocked) writes	(likewise, can't write to addr 0)
+always_ff @ (posedge clk)
+  if (write_en)	// protected constant
+    registers[waddr] <= data_in;
 
 endmodule

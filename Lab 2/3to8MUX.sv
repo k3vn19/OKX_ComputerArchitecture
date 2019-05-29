@@ -1,7 +1,7 @@
 // 3 to 8 MUX
 //Used for get function
 
-module decoder_3to8(
+module mux_3to8(
   	input[2:0] sel,     
 	output[7:0] out     
 );
