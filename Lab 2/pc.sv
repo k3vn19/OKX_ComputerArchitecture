@@ -1,28 +1,16 @@
-import definitions::*;
 module pc (
-  input        [2:0] op, 		      // opcode from machine code instruction
-  //input signed [7:0] bamt,		  // how far/where to jump or branch
-  input              clk,	        // clk -- PC advances and memory/reg_file writes are clocked 
-  input              reset,		    // overrides all else, forces PC to 0 (start of program)
-  input			[7:0] do_a,			      //condition, reg1
-  input			[7:0]	dout,			      //from LUT
-  output logic [10:0] PC);		    // program count
+  input               clk,	        		// clk -- PC advances and memory/reg_file writes are clocked 
+  input               reset,		    	// overrides all else, forces PC to 0 (start of program)
+  input[10:0]			 pc_in,
+  output logic        halt,
+  output logic [10:0] pc_out);			// program count
 
-  assign jz = ((op == 3'b100) && (do_a == 'b0));
-  assign jnz = ((op == 3'b101) && (do_a != 'b0)); 
-  //assign brel = z && op==BZR;	 // do a relative branch iff ALU z flag is set on a BZR instruction
-  //assign babs = z && op==BZA;	 // same for absolute branch
-
-  //assign jamt = z && 
-
-  always_ff @(posedge clk) begin 
-    if(reset)					 // resetting to start=0
-	    PC <= 'b0;
-    else if (jz)               // relative branching
-      PC <= dout;
-    else if (jnz)				 // relative branching
-      PC <= dout;
-    else						 // normal/default operation
-      PC <= PC + 'b1;			 
+  always_ff @(posedge clk) begin
+    if (reset)
+	   pc_out <= 'b0;
+	 else
+		if (pc_in>1000) halt <= 1;
+    else
+      pc_out <= pc_in + 'b1;
   end
 endmodule

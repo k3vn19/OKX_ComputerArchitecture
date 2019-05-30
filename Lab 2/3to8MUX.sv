@@ -3,8 +3,7 @@
 
 module mux_3to8(
   	input[2:0] sel,     
-	output[7:0] out     
-);
+	output[7:0] out);
 	  
 	always_comb begin
 		casez(sel)

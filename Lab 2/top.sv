@@ -1,133 +1,135 @@
 // Top-level design connects all pieces together for OKX.
-import definitions::*;
+// ALL UNDERSCORE!!!!
 
 module top(
   input        clk,
                reset,
-  output logic done);
+  output logic halt);
 
   // list of interconnecting wires/buses w/ respective bit widths 
-  wire signed[7:0] 			bamt;	    		// PC jump branch amount
-  wire[10:0] 					PC;				// program counter
-  wire[8:0] 					inst;			   // machine code assembly instruction
-															// === control wires ===
-  wire 							jnz,				
-									jz,
-									ALUSrc,			// select signal for 1:2 mux before ALU in_b
-									RegWrite,		// signal for write enable for register file
-									MemWrite;		// signal for write enable of data mem
-  wire[1:0]  					MemtoReg;			// select signal for 2:4 mux 
-  wire[2:0] 					ALUOp;				// signal for ALU operation
-																			// === data mem ===		
-  wire[7:0] 					dm_out,			  // output of data memory, input to 2:4 mux
-            					dm_in,			  // input data for data mem 
-            					dm_adr;				// address to read or write of data mem
-																			// === ALU ===
-  wire[7:0] 					in_a,			    // first input for ALU, comes from reg file first output
-            					in_b,			   	// second input for ALU, comes from 1:2 mux
-									rslt,         // alu output
-																			// === register file ===
-            					do_a,	        // reg file output, goes to in_a
-			   					do_b;			   	// reg file output, used as first input to 1:2 mux
+  wire signed[10:0] 			lut_out;
+  wire[10:0] 					pc_in,
+									pc_out;			// program counter
+  wire[8:0] 					inst;			   // output of IF, instruction
+  
+													   // === control wires ===
+  wire 							pc_src,			// input for muxpc
+									alu_src,			// select signal for 1:2 mux before ALU in_b
+									reg_write,		// signal for write enable for register file
+									mem_read,
+									mem_write,		// signal for write enable of data mem
+									jmp;
+  wire[1:0]  					wb_src;		   // writeback source for 2:4 mux 
+  wire[2:0] 					alu_op;			// signal for ALU operation
+														
+														// === data mem ===		
+  wire[7:0] 					dm_out,			// output of data memory, input to 2:4 mux
+            					dm_in,			// input data for data mem 
+            					dm_adr;		   // address to read or write of data mem
+														
+														// === ALU ===
+  wire[7:0] 					in_b,			   // second input for ALU, comes from 1:2 mux
+									alu_out,       // alu output
+														
+														// === register file ===
+            					do_a,	         // reg file output, goes to in_a
+			   					do_b,			   // reg file output, used as first input to 1:2 mux
+									reg_prime_out;
   wire[7:0] 					rf_din;	      // reg file input data to be written
-  wire[2:0] 					op;	          // TODO - what is this again?
-  wire[1:0] 					ptr_a,			  // ref_file pointer inputs, come from instruction
+  wire[2:0] 					op;	         // TODO - what is this again?
+  wire[1:0] 					ptr_a,			// ref_file pointer inputs, come from instruction
             					ptr_b;			  
-																			// === mux outputs === 
-  wire[15:0]					m1_out,				
-									m2_out,
-									m3_out;
+														// === mux outputs === 
+  wire[7:0]						wb_res,			// writeback
+									get_res;			// get res
  
-	// Module wire/bus connections
+  // Module wire/bus connections
 
-  
-  mux_2to4 mux1(
-		.A (rslt),												// output of ALU
-		.B (m2_out),											// output of 3:8 mux
-		.C (dm_out),											// output of data mem
-		.D (8'b0),												// dummy value, isn't ever used
-		.sel (MemtoReg),
-		.Y (m1_out)
+  mux_2to1 #(11) mux_pc(								// mux for PC
+		.A(pc_out+1),
+		.B(lut_out),
+		.sel(pc_src),
+		.out(pc_in)
   );
   
-  mux_3to8 mux2(
+  mux_2to1 mux_alusrc(							// mux for alu source
+		.A(do_b),									// dataout b
+		.B(inst[7:0]),								// contains shift amount (last 2 bits)
+		.sel(alu_src),
+		.out(in_b)
+  );
+  
+  mux_2to4 mux_wb(								// mux for writeback
+		.A(alu_out),								// output of ALU
+		.B(get_res),								// output of 3:8 mux get func
+		.C(dm_out),									// output of data mem
+		.D(8'd0),									// not used
+		.sel (wb_src),
+		.out (wb_res)
+  );
+  
+  mux_3to8 mux_get(								// mux for get func
 		.sel (inst[2:0]),
-		.out (m2_out)
-  );
-
-  mux_2to1 mux3(
-		.A(do_b),
-		.B(inst[7:0]),										// this is the shamt, but we pass in 8 bits to sign extend. 
-																			// only the lowest 2 bits will actually be used
-		.sel(ALUSrc),
-		.Y(in_b)
+		.out (get_res)
   );
 						
-  pc pc1(						 									// program counter
-		.clk (clk) ,
-		.reset, 
-		.op,						     							// from inst_mem
-//	.bamt (bamt),			         				// from lut_pc
-		.do_a,														// reg 1
-		.dout(bamt),											// from LUT
-		.PC 															// to PC module
-	);					     
+  pc prog_counter(						 		// program counter
+		.clk (clk),
+		.reset,
+		.pc_in,
+		.pc_out,
+		.halt
+  );					     
 
-  imem im1(					     							// instruction memory
-		.PC,				     									// pointer in = PC
-	 	.inst				     									// output = 7-bit (yours is 9) machine code
-	);
-
-//  assign done = inst[6:4]==kSTR; // store result & hit done flag // TODO - why is this here?
-
-	Control ctr(
-		.inst,
-		.jz,
-		.jnz,
-		.MemtoReg,
-		.MemWrite,
-		.ALUSrc,
-		.RegWrite,
-		.ALUOp
-	);
-
-  reg_file rf(						 									// === register file ===
-		.clk,
-		.write_en(RegWrite),		 							// write enable
-		.raddrA(inst[5:3]),									// read pointers 
-		.raddrB(inst[2:0]),									// write/read pointer
-		.waddr(inst[5:3]),
-		.data_in(m1_out),			 							// data to be written in
-		.data_outA(do_a),										// output going to first input of ALU
-		.data_outB(do_b)										// output going to first input of 1:2 mux	 								
+  imem inst_mem(					     			// instruction memory
+		.PC(pc_out),				     					// pointer in = PC
+	 	.inst				     						// output = 7-bit (yours is 9) machine code
   );
 
-  alu au1(						 								// === ALU unit ====
-		.op (ALUOp),						 					// ALU operation from control unit
-		.in_a(do_a) ,								 			// alu input from register file
-		.in_b(m3_out) ,										// alu input from 1:2 mux
-		.rslt						 									// alu output, used as input for 2:4 mux
+  control ctr(
+		.inst,										// instruction
+		.reg_in(reg_prime_out),
+		.pc_src,
+		.alu_src,
+		.wb_src,
+		.reg_write,
+		.mem_read,
+		.mem_write,
+		.jmp
+  );
+
+  reg_file rf(						 				// === register file ===
+		.clk,
+		.write_en(reg_write),		 			// write enable
+		.raddrA(inst[5:3]),						// read pointers 
+		.raddrB(inst[2:0]),						// write/read pointer
+		.waddr(inst[5:3]),						// write address
+		.data_in(wb_res),			 				// data to be written in
+		.data_outA(do_a),							// output going to first input of ALU
+		.data_outB(do_b),							// output going to first input of 1:2 mux	 
+		.reg_prime_out
+  );
+
+  alu ALU(						 					// === ALU unit ====
+		.op (alu_op),						 		// ALU operation from control unit
+		.in_a(do_a),								// alu input from register file
+		.in_b,		          					// alu input from 1:2 mux
+		.rslt(alu_out)			 					// alu output, used as input for 2:4 mux
 	);		
 
-	dmem dm1(						 								// === data memory ===
-   	//.ReadMem(1'b1),
+  dmem dm1(						 					// === data memory ===
 		.clk,
-		.memWrite  (MemWrite),					 	// only time to write = store 
-		.addr(m3_out),				 						// from LUT
-		.di  (do_a) ,				 							// data to store (from reg_file)
-		.dout(dm_out)				 							// data out (for loads)
-	);				 											
+		.mem_write,									// only time to write = store
+		.mem_read,
+		.addr(do_b),				 				// from LUT
+		.di  (do_a),				 				// data to store (from reg_file)
+		.dout(dm_out)				 				// data out (for loads)
+  );				 											
 
-	// TODO
-  lut_m lm1(					 								// lookup table for data mem address
-    .ptr(inst[7:0]),			 						// select one of up to eight addresses
-		.dm_adr						 								// send this (8-bit) address to data mem
+  lut_pc lut(				     					// maps 2 bits to 8
+		.index(inst[5:0]),
+		.jmp,
+		.out(lut_out)	             			// branch distance in PC
   );
-
-	// TODO
-  lut_pc lp1(				     							// maps 2 bits to 8
-    .sel  (3'b000),		    
-		.dout (bamt)	             			// branch distance in PC
-	);
 
 endmodule
