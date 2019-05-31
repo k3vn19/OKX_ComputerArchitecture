@@ -15,14 +15,14 @@ public class Lab3 {
 
     public static void main(String[] args) {
         try {
-            read(2);
+            read(1);
         } catch (IOException e) {
             System.out.println("Files not read!!!");
         }
 
         // compile the assembly code and write to output files
         try {
-            compile(2);
+            compile(1);
         } catch (IOException e) {
             System.out.println("Unable to write!!!");
         }
@@ -94,7 +94,8 @@ public class Lab3 {
 
             String opcode = getOpcode(arguments[0]);
 
-            String toWrite;
+            String toWrite; // raw machine code
+            String toWrite2; // machine code in debug mode
             if (opcode == null) {
                 // this should only be labels/non compiled lines, debugging purposes only
                 //System.out.println("Skipped: " + lines.get(i));
@@ -112,13 +113,14 @@ public class Lab3 {
                     System.out.println("Error getting immediate value: " + lines.get(i));
                 } else {
                     // if there is no error then write the machine code
-                    toWrite = opcode + "_" + source + "_" + immediate;
+                    toWrite = opcode + source + immediate;
+                    toWrite2 = opcode + "_" + source + "_" + immediate;
                     writer.write(toWrite + "\n");
 
                     // add comments for debug file
                     String comment = " # " + instruction[0];
-                    toWrite += comment;
-                    writer2.write(toWrite + "\n");
+                    toWrite2 += comment;
+                    writer2.write(toWrite2 + "\n");
                 }
 
             } else if (opcode.equals("111")) {
@@ -142,13 +144,29 @@ public class Lab3 {
                 // if no error write the machine code
                 if (!error) {
                     // write compiled machine code
-                    toWrite = opcode + "_" + source + "_" + direction + "_" + shamt;
+                    toWrite = opcode + source + direction + shamt;
+                    toWrite2 = opcode + "_" + source + "_" + direction + "_" + shamt;
                     writer.write(toWrite + "\n");
 
                     // add comments for debug file
                     String comment = " # " + instruction[0];
-                    toWrite += comment;
-                    writer2.write(toWrite + "\n");
+                    toWrite2 += comment;
+                    writer2.write(toWrite2 + "\n");
+                }
+            } else if(opcode.equals("100") || opcode.equals("101")){ // jump statements
+                String jumpImm = getJumpImm(arguments[1]);
+                if(jumpImm != null){
+                    toWrite = opcode + "000" + jumpImm;
+                    toWrite2 = opcode + "_000_" + jumpImm;
+                    writer.write(toWrite + "\n");
+
+                    // add comments for debug file
+                    String comment = " # " + instruction[0];
+                    toWrite2 += comment;
+                    writer2.write(toWrite2 + "\n");
+                }
+                else{
+                    System.out.print("Error getting jump immediate: " + lines.get(i));
                 }
             } else {
                 // all other instructions are R type so get first source and second source register
@@ -157,13 +175,14 @@ public class Lab3 {
 
                 if (source1 != null && source2 != null) {
                     // write compiled machine code
-                    toWrite = opcode + "_" + source1 + "_" + source2;
+                    toWrite = opcode +  source1 + source2;
+                    toWrite2 = opcode + "_" + source1 + "_" + source2;
                     writer.write(toWrite + "\n");
 
                     // add comments for debug file
                     String comment = " # " + instruction[0];
-                    toWrite += comment;
-                    writer2.write(toWrite + "\n");
+                    toWrite2 += comment;
+                    writer2.write(toWrite2 + "\n");
                 } else {
                     System.out.println("Error computing registers: " + lines.get(i));
                 }
@@ -204,6 +223,15 @@ public class Lab3 {
                 return null;
         }
     } // end of getOpcode()
+
+    private static String getJumpImm(String line) {
+        switch (line) {
+            case "0":
+                return "000";
+            default:
+                return null;
+        }
+    }
 
     /**
      * Helper method to get binary representation of register number.
