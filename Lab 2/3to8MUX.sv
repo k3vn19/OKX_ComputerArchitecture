@@ -14,7 +14,7 @@ module mux_3to8(
 				out <= 8'd1;
 			end
 			3'b010: begin
-				out <= 8'd200;
+				out <= 8'd30;
 			end
 			3'b011: begin
 				out <= 8'd204;
