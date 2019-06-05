@@ -10,39 +10,39 @@ cModel Technology
 dC:/Users/hugh9/Desktop/CSE 141l/class demo files
 valu
 Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z1 DXx4 work 11 definitions 0 22 hILULeLW4SXR03VA8O5LQ3
-DXx4 work 11 alu_sv_unit 0 22 kRO2lbIQjOmnNdJ_PA]`T0
+Z1 DXx4 work 11 definitions 0 22 Mz3:OfI=Nd@hjTk85MaWi3
+DXx4 work 11 alu_sv_unit 0 22 48eCAN;AMa<eozY8U:c?W0
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 r1
 !s85 0
 31
 !i10b 1
 !s100 I_N]U[ceBOXVFB7KYfZ2X2
-IEeI>6_3F<iO[gBTjWl@UE3
+IN8Vnbh=K<m<P[8I8_K@GA1
 !s105 alu_sv_unit
 S1
-Z3 dC:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2
-Z4 w1558955693
-Z5 8C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/alu.sv
-Z6 FC:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/alu.sv
+Z3 d//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2
+Z4 w1559765075
+Z5 8//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/alu.sv
+Z6 F//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/alu.sv
 L0 2
 Z7 OV;L;10.5b;63
-Z8 !s108 1559600336.000000
-Z9 !s107 C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/alu.sv|
-Z10 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/alu.sv|
+Z8 !s108 1559765659.000000
+Z9 !s107 //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/alu.sv|
+Z10 !s90 -reportprogress|300|-work|work|-sv|-stats=none|//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/alu.sv|
 !i113 1
 Z11 o-work work -sv
 Z12 tCvgOpt 0
 Xalu_sv_unit
 R0
 R1
-VkRO2lbIQjOmnNdJ_PA]`T0
+V48eCAN;AMa<eozY8U:c?W0
 r1
 !s85 0
 31
 !i10b 1
 !s100 F=B;0cQU_ZKS5IZ>h<UBO1
-IkRO2lbIQjOmnNdJ_PA]`T0
+I48eCAN;AMa<eozY8U:c?W0
 !i103 1
 S1
 R3
@@ -59,48 +59,48 @@ R11
 R12
 vcontrol
 R0
-Z13 !s110 1559600337
+Z13 !s110 1559765659
 !i10b 1
 !s100 7E]PnmSmjKkeR]DXec@X_2
-I0:;h4G]:m3gn>5i9PM0z63
+IARaX0X`Of4ci]IM0^AR]L2
 R2
 !s105 Control_sv_unit
 S1
 R3
-w1559597689
-8C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/Control.sv
-FC:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/Control.sv
+Z14 w1559765203
+8//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/Control.sv
+F//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/Control.sv
 L0 1
 R7
 r1
 !s85 0
 31
-Z14 !s108 1559600337.000000
-!s107 C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/Control.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/Control.sv|
+R8
+!s107 //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/Control.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/Control.sv|
 !i113 1
 R11
 R12
 Xdefinitions
 R0
-Z15 !s110 1559600336
+!s110 1559765658
 !i10b 1
 !s100 9HA]7WBQ]1]c[HL4iO^2M1
-IhILULeLW4SXR03VA8O5LQ3
-VhILULeLW4SXR03VA8O5LQ3
+IMz3:OfI=Nd@hjTk85MaWi3
+VMz3:OfI=Nd@hjTk85MaWi3
 S1
 R3
-w1558393763
-8C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/definitions.sv
-FC:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/definitions.sv
+R4
+8//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/definitions.sv
+F//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/definitions.sv
 L0 3
 R7
 r1
 !s85 0
 31
-R8
-!s107 C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/definitions.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/definitions.sv|
+!s108 1559765658.000000
+!s107 //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/definitions.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/definitions.sv|
 !i113 1
 R11
 R12
@@ -109,238 +109,238 @@ R0
 R13
 !i10b 1
 !s100 l_YE7K3LjF`KO;n^8T[1k3
-I5aJcUUfZcYC3[VPaizH^Y1
+IB[cP6z[J6gKW`I3c9]RZ]1
 R2
 !s105 dmem_sv_unit
 S1
 R3
-w1559595628
-8C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/dmem.sv
-FC:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/dmem.sv
+R14
+8//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/dmem.sv
+F//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/dmem.sv
 L0 1
 R7
 r1
 !s85 0
 31
-R14
-!s107 C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/dmem.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/dmem.sv|
+R8
+!s107 //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/dmem.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/dmem.sv|
 !i113 1
 R11
 R12
 vimem
 R0
-R13
+Z15 !s110 1559765660
 !i10b 1
 !s100 O^Lz3VTLJ1=C^P]MC4=:m0
-Il0Min79V[9zV`[22ACd@32
+ISg00hXBA3G0Uoh?z5Ro6z3
 R2
 !s105 imem_sv_unit
 S1
 R3
-w1559594815
-8C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/imem.sv
-FC:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/imem.sv
+R14
+8//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/imem.sv
+F//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/imem.sv
 L0 5
 R7
 r1
 !s85 0
 31
-R14
-!s107 C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/imem.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/imem.sv|
+Z16 !s108 1559765660.000000
+!s107 //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/imem.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/imem.sv|
 !i113 1
 R11
 R12
 vlut_pc
 R0
-R13
+R15
 !i10b 1
 !s100 Lbh9kaYn^3z7_6@mjJ;4z2
-Im5nP<?S98A?L5oeZi2coW0
+IgZP0e[DE10=f9TloGHRU:1
 R2
 !s105 lut_pc_sv_unit
 S1
 R3
-w1559594683
-8C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/lut_pc.sv
-FC:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/lut_pc.sv
+R14
+8//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/lut_pc.sv
+F//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/lut_pc.sv
 L0 5
 R7
 r1
 !s85 0
 31
-R14
-!s107 C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/lut_pc.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/lut_pc.sv|
+R16
+!s107 //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/lut_pc.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/lut_pc.sv|
 !i113 1
 R11
 R12
 vmux_2to1
 R0
-R15
+R13
 !i10b 1
 !s100 2gediTDaPOQI?C;UZ2>:@1
-IfnBB=f[YIhQ1Ii5E]Lo>[1
+I>7zSCfbjVO6<`Dn=MzZG>2
 R2
 !s105 _2to1MUX_sv_unit
 S1
 R3
-w1559597431
-8C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\2to1MUX.sv
-FC:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\2to1MUX.sv
+R14
+8//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/2to1MUX.sv
+F//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/2to1MUX.sv
 L0 3
 R7
 r1
 !s85 0
 31
 R8
-!s107 C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\2to1MUX.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\2to1MUX.sv|
+!s107 //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/2to1MUX.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/2to1MUX.sv|
 !i113 1
 R11
 R12
 vmux_2to4
 R0
-R15
+R13
 !i10b 1
 !s100 lf1^_HR4OgVDIbCec^gM40
-IDlAB][Ye_eL@eFA`_T1XB1
+I;X>3f7>;bQJ:nO0k?^KFe2
 R2
 !s105 _2to4MUX_sv_unit
 S1
 R3
-w1559596388
-8C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\2to4MUX.sv
-FC:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\2to4MUX.sv
+R14
+8//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/2to4MUX.sv
+F//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/2to4MUX.sv
 L0 3
 R7
 r1
 !s85 0
 31
 R8
-!s107 C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\2to4MUX.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\2to4MUX.sv|
+!s107 //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/2to4MUX.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/2to4MUX.sv|
 !i113 1
 R11
 R12
 vmux_3to8
 R0
-R15
+R13
 !i10b 1
 !s100 nAHCVIU6m5XV^FEe:MZzF2
-Ilc?De1`P`<U:8N;eIjMbd0
+I8<`:[U5=YdJ?0:VYHcn6B3
 R2
 !s105 _3to8MUX_sv_unit
 S1
 R3
-w1559596404
-8C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\3to8MUX.sv
-FC:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\3to8MUX.sv
+R14
+8//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/3to8MUX.sv
+F//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/3to8MUX.sv
 L0 4
 R7
 r1
 !s85 0
 31
 R8
-!s107 C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\3to8MUX.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\3to8MUX.sv|
+!s107 //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/3to8MUX.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/3to8MUX.sv|
 !i113 1
 R11
 R12
 vpc
 R0
-R13
+R15
 !i10b 1
 !s100 [F1>@8A[A[HW49<T;<>Xl3
-IL9^V<0>heOh?CXdNC9JDD2
+If5=ke3;>FNOK7H==dP_>k2
 R2
 !s105 pc_sv_unit
 S1
 R3
-w1559599790
-8C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/pc.sv
-FC:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/pc.sv
+R14
+8//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/pc.sv
+F//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/pc.sv
 L0 1
 R7
 r1
 !s85 0
 31
-R14
-!s107 C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/pc.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/pc.sv|
+R16
+!s107 //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/pc.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/pc.sv|
 !i113 1
 R11
 R12
 vprog123_tb
 R0
-Z16 !s110 1559600338
+!s110 1559765661
 !i10b 1
 !s100 61_fLe?Qo=94^BA=j;F>h1
-IIRFY]`kg4^4_oGoccS^4a2
+I`9mg3Tb<0@?lKnNKC;0bY2
 R2
 !s105 prog123_tb_sv_unit
 S1
 R3
-w1559597271
-8C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\prog123_tb.sv
-FC:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\prog123_tb.sv
+R14
+8//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv
+F//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv
 L0 3
 R7
 r1
 !s85 0
 31
-Z17 !s108 1559600338.000000
-!s107 C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\prog123_tb.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\prog123_tb.sv|
+R16
+!s107 //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv|
 !i113 1
 R11
 R12
 vreg_file
 R0
-R16
+R15
 !i10b 1
 !s100 ^f>FjBj3W@j8hRz2abUTP2
-IJ]T3K7>kR:k21[CBmfDCf0
+IgXkmSOIGnHdOeg^eLfbZj2
 R2
 !s105 rf_sv_unit
 S1
 R3
-w1559178125
-8C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/rf.sv
-FC:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/rf.sv
+R4
+8//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/rf.sv
+F//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/rf.sv
 L0 3
 R7
 r1
 !s85 0
 31
-R14
-!s107 C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/rf.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/hugh9/Desktop/CSE 141l/Labs/OKX_ComputerArchitecture/Lab 2/rf.sv|
+R16
+!s107 //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/rf.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/rf.sv|
 !i113 1
 R11
 R12
 vtop
 R0
-R16
+R15
 !i10b 1
-!s100 7zQOUmNL0][956A0J2X?F2
-IN88W_m;Sh5RE2aMdblJ;72
+!s100 M?h<UM_P?R@EWK1@a2FUL3
+IIm<PYN=B1<eF0eb@n9K2f0
 R2
 !s105 top_sv_unit
 S1
 R3
-w1559598637
-8C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\top.sv
-FC:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\top.sv
+R14
+8//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/top.sv
+F//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/top.sv
 L0 4
 R7
 r1
 !s85 0
 31
-R17
-!s107 C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\top.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:\Users\hugh9\Desktop\CSE 141l\Labs\OKX_ComputerArchitecture\Lab 2\top.sv|
+R16
+!s107 //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/top.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/top.sv|
 !i113 1
 R11
 R12
