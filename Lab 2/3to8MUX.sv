@@ -3,33 +3,33 @@
 
 module mux_3to8(
   	input[2:0] sel,     
-	output[7:0] out);
+	output logic [7:0] out);
 	  
 	always_comb begin
 		casez(sel)
 			3'b000: begin
-				out = 8'd0;
+				out <= 8'd0;
 			end
 			3'b001: begin
-				out = 8'd1;
+				out <= 8'd1;
 			end
 			3'b010: begin
-				out = 8'd200;
+				out <= 8'd200;
 			end
 			3'b011: begin
-				out = 8'd204;
+				out <= 8'd204;
 			end
 			3'b100: begin
-				out = 8'd4;
+				out <= 8'd4;
 			end
 			3'b101: begin
-				out = 8'd3;
+				out <= 8'd3;
 			end
 			3'b110: begin
-				out = 8'd128;
+				out <= 8'd128;
 			end
 			3'b111: begin
-				out = 8'd32;
+				out <= 8'd32;
 			end
 		endcase
 	end

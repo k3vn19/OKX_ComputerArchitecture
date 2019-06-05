@@ -3,16 +3,16 @@
 module mux_2to4(
    input  [7:0] A, B, C, D,
 	input	 [1:0] sel,
-	output [7:0] out);
+	output logic [7:0] out);
    
 	always @(A or B or C or D or sel)        
 		if (sel == 2'b00)
-			out = A;
+			out <= A;
 		else if(sel == 2'b01)        
-			out = B;
+			out <= B;
 		else if(sel == 2'b10)
-			out = C;
+			out <= C;
 		else
-			out = D;
+			out <= D;
 
 endmodule
