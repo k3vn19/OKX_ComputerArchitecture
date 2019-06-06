@@ -8,7 +8,7 @@ module lut_pc(
   output logic[10:0] out);
 
   always_comb case (index)
-	6'b000000:	out = 16'h0;
+	6'b000000:	out = 11'd1;
 	default: out = 16'h0;
   endcase
 

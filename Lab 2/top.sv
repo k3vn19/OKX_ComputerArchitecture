@@ -9,16 +9,16 @@ module top(
   // list of interconnecting wires/buses w/ respective bit widths 
   wire signed[10:0] 			lut_out;
   wire[10:0] 					pc_in,
-									pc_out;			// program counter
+								pc_out;			// program counter
   wire[8:0] 					inst;			   // output of IF, instruction
   
 													   // === control wires ===
   wire 							pc_src,			// input for muxpc
-									alu_src,			// select signal for 1:2 mux before ALU in_b
-									reg_write,		// signal for write enable for register file
-									mem_read,
-									mem_write,		// signal for write enable of data mem
-									jmp;
+								alu_src,			// select signal for 1:2 mux before ALU in_b
+								reg_write,		// signal for write enable for register file
+								mem_read,
+								mem_write,		// signal for write enable of data mem
+								jmp;
   wire[1:0]  					wb_src;		   // writeback source for 2:4 mux 
   wire[2:0] 					alu_op;			// signal for ALU operation
 														
@@ -29,24 +29,24 @@ module top(
 														
 														// === ALU ===
   wire[7:0] 					in_b,			   // second input for ALU, comes from 1:2 mux
-									alu_out,       // alu output
+								alu_out,       // alu output
 														
 														// === register file ===
             					do_a,	         // reg file output, goes to in_a
 			   					do_b,			   // reg file output, used as first input to 1:2 mux
-									reg_prime_out;
+								reg_prime_out;
   wire[7:0] 					rf_din;	      // reg file input data to be written
-  wire[2:0] 					op;	         // TODO - what is this again?
-  wire[1:0] 					ptr_a,			// ref_file pointer inputs, come from instruction
-            					ptr_b;			  
+//   wire[2:0] 					op;	         // TODO - what is this again?
+//   wire[1:0] 					ptr_a,			// ref_file pointer inputs, come from instruction
+//             					ptr_b;			  
 														// === mux outputs === 
   wire[7:0]						wb_res,			// writeback
-									get_res;			// get res
+								get_res;			// get res
  
   // Module wire/bus connections
 
   mux_2to1 #(11) mux_pc(								// mux for PC
-		.A(pc_out+1),
+		.A(pc_out + 11'd1),
 		.B(lut_out),
 		.sel(pc_src),
 		.out(pc_in)
@@ -95,7 +95,8 @@ module top(
 		.reg_write,
 		.mem_read,
 		.mem_write,
-		.jmp
+		.jmp,
+		.alu_op
   );
 
   reg_file rf(						 				// === register file ===

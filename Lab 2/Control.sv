@@ -1,12 +1,12 @@
 module control(
-  input [8:0] 			 inst,
-  input [7:0]			 reg_in,                     // special register for ALU result
+  input [8:0]         inst,
+  input [7:0]			    reg_in,                     // special register for ALU result
   output logic        pc_src,
-			             alu_src, 
+			                alu_src, 
                       reg_write,
-							 mem_read,
+							        mem_read,
                       mem_write,  
-							 jmp,
+							        jmp,
   output logic[1:0]   wb_src,
   output logic[2:0]   alu_op
 );

@@ -11,7 +11,7 @@ module imem #(parameter A=11, W=9) (
   always_comb inst = inst_rom[PC];
  
   initial begin
-  	$readmemb("machine_code.txt",inst_rom);
+  	$readmemb("machine1.txt",inst_rom);
   end 
   
 endmodule
