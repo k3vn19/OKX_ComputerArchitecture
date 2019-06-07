@@ -1,0 +1,954 @@
+# Compile of top.sv was successful.
+# Compile of definitions.sv was successful.
+# Compile of 2to1MUX.sv was successful.
+# Compile of 2to4MUX.sv was successful.
+# Compile of 3to8MUX.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of Control.sv was successful.
+# Compile of dmem.sv was successful.
+# Compile of imem.sv was successful.
+# Compile of lut_pc.sv was successful.
+# Compile of pc.sv was successful.
+# Compile of rf.sv was successful.
+# Compile of top.sv was successful.
+# Compile of prog123_tb.sv was successful.
+# 13 compiles, 0 failed with no errors.
+vsim -gui work.prog123_tb
+# vsim -gui work.prog123_tb 
+# Start time: 14:05:37 on Jun 05,2019
+# Loading sv_std.std
+# Loading work.prog123_tb
+# Loading work.top
+# Loading work.mux_2to1
+# Loading work.mux_2to4
+# Loading work.mux_3to8
+# Loading work.pc
+# Loading work.imem
+# Loading work.control
+# Loading work.reg_file
+# Loading work.definitions
+# Loading work.alu_sv_unit
+# Loading work.alu
+# Loading work.dmem
+# Loading work.lut_pc
+add wave -position insertpoint sim:/prog123_tb/DUT/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: hugh9  Hostname: DESKTOP-B12A0KS  ProcessID: 14364
+#           Attempting to use alternate WLF file "./wlftycvza9".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftycvza9
+add wave -position insertpoint  \
+sim:/prog123_tb/DUT/rf/registers
+add wave -position insertpoint  \
+sim:/prog123_tb/DUT/dm1/core
+add wave -position insertpoint  \
+sim:/prog123_tb/DUT/inst_mem/inst_rom
+run -all
+# start program 1
+#  
+# 0101001010101010
+# xxxxxxxxxxxxxxxx
+#  
+# 0110100010001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0110000001001101
+# xxxxxxxxxxxxxxxx
+#  
+# 0110011000011110
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0001100001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0100011010100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0010000100010010
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000000000100
+# xxxxxxxxxxxxxxxx
+#  
+# 0101000001100100
+# xxxxxxxxxxxxxxxx
+#  
+# 0001011100111010
+# xxxxxxxxxxxxxxxx
+#  
+# 0101001101100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111111001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111100001100001
+# xxxxxxxxxxxxxxxx
+#  
+# 0001111111001101
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 2
+#  
+# 0000010011000110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001010101010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001001110111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001110001111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011000101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000010111101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011100001010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000100100000
+# xxxxxxxxxxxxxxxx
+#  
+# 0000010010011101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000000010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001011010101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011010101110
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 3
+#  
+# ctb =  96   x
+# cts = 127   x
+# cto =  32   x
+# ** Note: $stop    : //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv(136)
+#    Time: 10065 ns  Iteration: 0  Instance: /prog123_tb
+# Break in Module prog123_tb at //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv line 136
+restart -f
+run -all
+# start program 1
+#  
+# 0101001010101010
+# xxxxxxxxxxxxxxxx
+#  
+# 0110100010001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0110000001001101
+# xxxxxxxxxxxxxxxx
+#  
+# 0110011000011110
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0001100001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0100011010100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0010000100010010
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000000000100
+# xxxxxxxxxxxxxxxx
+#  
+# 0101000001100100
+# xxxxxxxxxxxxxxxx
+#  
+# 0001011100111010
+# xxxxxxxxxxxxxxxx
+#  
+# 0101001101100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111111001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111100001100001
+# xxxxxxxxxxxxxxxx
+#  
+# 0001111111001101
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 2
+#  
+# 0000010011000110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001010101010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001001110111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001110001111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011000101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000010111101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011100001010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000100100000
+# xxxxxxxxxxxxxxxx
+#  
+# 0000010010011101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000000010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001011010101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011010101110
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 3
+#  
+# ctb =  96   x
+# cts = 127   x
+# cto =  32   x
+# ** Note: $stop    : //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv(136)
+#    Time: 10065 ns  Iteration: 0  Instance: /prog123_tb
+# Break in Module prog123_tb at //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv line 136
+# Compile of definitions.sv was successful.
+# Compile of 2to1MUX.sv was successful.
+# Compile of 2to4MUX.sv was successful.
+# Compile of 3to8MUX.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of Control.sv was successful.
+# Compile of dmem.sv was successful.
+# Compile of imem.sv was successful.
+# Compile of lut_pc.sv was successful.
+# Compile of pc.sv was successful.
+# Compile of rf.sv was successful.
+# Compile of top.sv was successful.
+# Compile of prog123_tb.sv was successful.
+# 13 compiles, 0 failed with no errors.
+restart -f
+# Loading work.prog123_tb
+# Loading work.top
+# Loading work.mux_2to1
+# Loading work.mux_2to4
+# Loading work.mux_3to8
+# Loading work.pc
+# Loading work.imem
+# Loading work.control
+# Loading work.reg_file
+# Loading work.definitions
+# Loading work.alu_sv_unit
+# Loading work.alu
+# Loading work.dmem
+# Loading work.lut_pc
+run -all
+# start program 1
+#  
+# 0101001010101010
+# xxxxxxxx00000000
+# ****Oh S***!
+#  
+# 0110100010001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0110000001001101
+# xxxxxxxxxxxxxxxx
+#  
+# 0110011000011110
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0001100001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0100011010100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0010000100010010
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000000000100
+# xxxxxxxxxxxxxxxx
+#  
+# 0101000001100100
+# xxxxxxxxxxxxxxxx
+#  
+# 0001011100111010
+# xxxxxxxxxxxxxxxx
+#  
+# 0101001101100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111111001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111100001100001
+# xxxxxxxxxxxxxxxx
+#  
+# 0001111111001101
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 2
+#  
+# 0000010011000110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001010101010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001001110111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001110001111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011000101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000010111101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011100001010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000100100000
+# xxxxxxxxxxxxxxxx
+#  
+# 0000010010011101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000000010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001011010101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011010101110
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 3
+#  
+# ctb =  96   x
+# cts = 127   x
+# cto =  32   x
+# ** Note: $stop    : //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv(136)
+#    Time: 10065 ns  Iteration: 0  Instance: /prog123_tb
+# Break in Module prog123_tb at //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv line 136
+restart -f
+run -all
+# start program 1
+#  
+# 0101001010101010
+# 0110100000000000
+# ****Oh S***!
+#  
+# 0110100010001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0110000001001101
+# xxxxxxxxxxxxxxxx
+#  
+# 0110011000011110
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0001100001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0100011010100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0010000100010010
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000000000100
+# xxxxxxxxxxxxxxxx
+#  
+# 0101000001100100
+# xxxxxxxxxxxxxxxx
+#  
+# 0001011100111010
+# xxxxxxxxxxxxxxxx
+#  
+# 0101001101100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111111001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111100001100001
+# xxxxxxxxxxxxxxxx
+#  
+# 0001111111001101
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 2
+#  
+# 0000010011000110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001010101010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001001110111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001110001111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011000101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000010111101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011100001010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000100100000
+# xxxxxxxxxxxxxxxx
+#  
+# 0000010010011101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000000010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001011010101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011010101110
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 3
+#  
+# ctb =  96   x
+# cts = 127   x
+# cto =  32   x
+# ** Note: $stop    : //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv(136)
+#    Time: 10065 ns  Iteration: 0  Instance: /prog123_tb
+# Break in Module prog123_tb at //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv line 136
+# Compile of definitions.sv was successful.
+# Compile of 2to1MUX.sv was successful.
+# Compile of 2to4MUX.sv was successful.
+# Compile of 3to8MUX.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of Control.sv was successful.
+# Compile of dmem.sv was successful.
+# Compile of imem.sv was successful.
+# Compile of lut_pc.sv was successful.
+# Compile of pc.sv was successful.
+# Compile of rf.sv was successful.
+# Compile of top.sv was successful.
+# Compile of prog123_tb.sv was successful.
+# 13 compiles, 0 failed with no errors.
+restart -f
+# Loading work.prog123_tb
+# Loading work.top
+# Loading work.mux_2to1
+# Loading work.mux_2to4
+# Loading work.mux_3to8
+# Loading work.pc
+# Loading work.imem
+# Loading work.control
+# Loading work.reg_file
+# Loading work.definitions
+# Loading work.alu_sv_unit
+# Loading work.alu
+# Loading work.dmem
+# Loading work.lut_pc
+run -all
+# start program 1
+#  
+# 0101001010101010
+# 0000110000000000
+# ****Oh S***!
+#  
+# 0110100010001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0110000001001101
+# xxxxxxxxxxxxxxxx
+#  
+# 0110011000011110
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0001100001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0100011010100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0010000100010010
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000000000100
+# xxxxxxxxxxxxxxxx
+#  
+# 0101000001100100
+# xxxxxxxxxxxxxxxx
+#  
+# 0001011100111010
+# xxxxxxxxxxxxxxxx
+#  
+# 0101001101100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111111001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111100001100001
+# xxxxxxxxxxxxxxxx
+#  
+# 0001111111001101
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 2
+#  
+# 0000010011000110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001010101010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001001110111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001110001111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011000101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000010111101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011100001010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000100100000
+# xxxxxxxxxxxxxxxx
+#  
+# 0000010010011101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000000010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001011010101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011010101110
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 3
+#  
+# ctb =  96   x
+# cts = 127   x
+# cto =  32   x
+# ** Note: $stop    : //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv(136)
+#    Time: 10065 ns  Iteration: 0  Instance: /prog123_tb
+# Break in Module prog123_tb at //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv line 136
+restart -f
+run -all
+# start program 1
+#  
+# 0101001010101010
+# 0000110000000000
+# ****Oh S***!
+#  
+# 0110100010001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0110000001001101
+# xxxxxxxxxxxxxxxx
+#  
+# 0110011000011110
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0001100001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0100011010100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0010000100010010
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000000000100
+# xxxxxxxxxxxxxxxx
+#  
+# 0101000001100100
+# xxxxxxxxxxxxxxxx
+#  
+# 0001011100111010
+# xxxxxxxxxxxxxxxx
+#  
+# 0101001101100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111111001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111100001100001
+# xxxxxxxxxxxxxxxx
+#  
+# 0001111111001101
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 2
+#  
+# 0000010011000110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001010101010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001001110111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001110001111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011000101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000010111101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011100001010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000100100000
+# xxxxxxxxxxxxxxxx
+#  
+# 0000010010011101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000000010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001011010101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011010101110
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 3
+#  
+# ctb =  96   x
+# cts = 127   x
+# cto =  32   x
+# ** Note: $stop    : //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv(136)
+#    Time: 10065 ns  Iteration: 0  Instance: /prog123_tb
+# Break in Module prog123_tb at //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv line 136
+restart -f
+run -all
+# start program 1
+#  
+# 0101001010101010
+# 0000110000000000
+# ****Oh S***!
+#  
+# 0110100010001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0110000001001101
+# xxxxxxxxxxxxxxxx
+#  
+# 0110011000011110
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0001100001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0100011010100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0010000100010010
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000000000100
+# xxxxxxxxxxxxxxxx
+#  
+# 0101000001100100
+# xxxxxxxxxxxxxxxx
+#  
+# 0001011100111010
+# xxxxxxxxxxxxxxxx
+#  
+# 0101001101100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111111001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111100001100001
+# xxxxxxxxxxxxxxxx
+#  
+# 0001111111001101
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 2
+#  
+# 0000010011000110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001010101010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001001110111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001110001111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011000101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000010111101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011100001010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000100100000
+# xxxxxxxxxxxxxxxx
+#  
+# 0000010010011101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000000010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001011010101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011010101110
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 3
+#  
+# ctb =  96   x
+# cts = 127   x
+# cto =  32   x
+# ** Note: $stop    : //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv(136)
+#    Time: 10065 ns  Iteration: 0  Instance: /prog123_tb
+# Break in Module prog123_tb at //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv line 136
+restart -f
+run -all
+# start program 1
+#  
+# 0101001010101010
+# 0000110010000000
+# ****Oh S***!
+#  
+# 0110100010001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0110000001001101
+# xxxxxxxxxxxxxxxx
+#  
+# 0110011000011110
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0001100001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0100011010100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0010000100010010
+# xxxxxxxxxxxxxxxx
+#  
+# 0011000000000100
+# xxxxxxxxxxxxxxxx
+#  
+# 0101000001100100
+# xxxxxxxxxxxxxxxx
+#  
+# 0001011100111010
+# xxxxxxxxxxxxxxxx
+#  
+# 0101001101100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111111001100111
+# xxxxxxxxxxxxxxxx
+#  
+# 0111100001100001
+# xxxxxxxxxxxxxxxx
+#  
+# 0001111111001101
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 2
+#  
+# 0000010011000110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001010101010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001001110111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001110001111
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011001110
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011011000101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000010111101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001100101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011100001010
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000100100000
+# xxxxxxxxxxxxxxxx
+#  
+# 0000010010011101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000000000010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011001010011
+# xxxxxxxxxxxxxxxx
+#  
+# 0000001011010101
+# xxxxxxxxxxxxxxxx
+#  
+# 0000011010101110
+# xxxxxxxxxxxxxxxx
+#  
+#  
+# start program 3
+#  
+# ctb =  96   x
+# cts = 127   x
+# cto =  32   x
+# ** Note: $stop    : //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv(136)
+#    Time: 10065 ns  Iteration: 0  Instance: /prog123_tb
+# Break in Module prog123_tb at //acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv line 136
