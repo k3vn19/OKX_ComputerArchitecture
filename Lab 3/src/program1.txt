@@ -2,9 +2,13 @@
 get        r0        0                # i = 0 for start of for loop
 
 
+
+
 loop:
-get        r1        1                # r1 = 1
+get        r1        1                #r1 = 1
 add        r1        r0                # put address of MSW into r1
+
+
 
 
                                 # COMPUTE P8
@@ -65,10 +69,20 @@ xor        r3        r2                # xor b5 to the other xor’d bits, this 
 
 
 
+
+
+
+
+
+
                                 # SAVE P8 TO MEM[60]
 get        r7        2                # load value of 30 into r7
 add        r7        r7                # r7 = 30 + 30 = 60
 st        r3        r7                # save p8 to mem[60]
+
+
+
+
 
 
 
@@ -132,6 +146,8 @@ shft        r2        1        1
 xor        r3        r2                # xor b2 with other xor’d bits
 
 
+
+
                                 # SAVE P4 TO MEM[61]
 get        r6        1                # load the value 1 into r6
 add        r7        r6                # r7 = 60 + 1 = 61
@@ -140,8 +156,12 @@ st        r3        r7                # store p4 into mem[61]
 
 
 
+
+
+
+
                                 # COMPUTE P2
-get        r1        1                # r1 = 1
+get        r1        1                # r1 =1
 add        r1        r0                # put address of MSW into r1
 ld        r1        r1                # load mem[MSW] into reg r1
 get        r2        0                # clear register 2
@@ -201,12 +221,16 @@ xor        r3        r2                # xor b1 to the other xor’d bits
 
 
 
+
+
+
+
 # SAVE P2 TO MEM[62]
 add        r7        r6                # r7 = 61 + 1 = 62
 st        r3        r7                # store p2 into mem[62]
                 
                                 # COMPUTE P1
-get        r1        1                # r1 = 1
+get        r1        1                # r1 =1
 add        r1        r0                # put address of MSW into r1
 ld        r1        r1                # load mem[MSW] into reg r1
 get        r2        0                # clear register 2
@@ -265,9 +289,13 @@ shft        r2        1        1
 xor        r3        r2                # xor b1 with the other xor’d bits. this is p1.
 
 
+
+
 # SAVE P1 TO MEM[63]
 add        r7        r6                # r7 = 62 + 1 = 63
 st        r3        r7                # store p1 into mem[63]
+
+
 
 
                                 # CONCATENATE BITS
@@ -316,11 +344,19 @@ add        r3        r2                # store { 0 b11 b10 b9 b8 b7 b6 b5} into 
 
 
 
+
+
+
+
 get        r7        2                # load value of 30 into r7
 add        r7        r0                # compute first output address, 31+offset
-get        r5        1
-add        r7        r5
+get        r4        1                #r4 =1
+add        r7        r4
 st         r3        r7                # save {0 b11 b10 b9 b8 b7 b6 b5} to mem[31+offset]
+
+
+
+
 
 
 
@@ -393,9 +429,15 @@ add        r3        r2                # store {p8 b4 b3 b2 p4 b1 p2 p1} into r3
 
 
 
+
+
+
+
 get        r7        2                # load value of 30 into r7
 add        r7        r0                # compute mem address of LSW of output
-st        r3        r7                # store  {p8 b4 b3 b2 p4 b1 p2 p1} in mem[base+31]
+st        r3        r7                # store  {p8 b4 b3 b2 p4 b1 p2 p1} in mem[base+30]
+
+
 
 
                                 # update counter for for-loop
