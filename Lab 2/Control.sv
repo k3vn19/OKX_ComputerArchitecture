@@ -13,33 +13,32 @@ module control(
 
   always_comb begin
     // set default values, and then update as needed in the case statement below
-    pc_src = 0;
     alu_src = 0;
     reg_write = 1;
     mem_read = 0;
     mem_write = 0;
     jmp = 0;
-	 wb_src = 0;
-	 alu_op = 0;
+    wb_src = 0;
+    alu_op = 0;
 
     casez(inst)
       9'b000??????: begin	//load
-		mem_read = 1;
+		  mem_read = 1;
       wb_src = 2'b10;
       end
       9'b001??????: begin	// store
       mem_write = 1;
-		reg_write = 0;
+		  reg_write = 0;
       end
       9'b010??????: begin	//XOR
       alu_op = 3'b011;
       end
       9'b100??????: begin	//JZ
-      if (reg_in == 0) jmp = 1;
+      if (reg_in != 0) jmp = 1;
       reg_write = 0;
       end
       9'b101??????: begin		//Jnz
-      if (reg_in != 0) jmp = 1;
+      if (reg_in == 0) jmp = 1;
       reg_write = 0;
       end
       9'b110??????: begin		//get
@@ -57,6 +56,8 @@ module control(
       alu_op = 3'b000;
       end
     endcase // end of casez
+
+    pc_src = jmp;
   
   end // end of always block
 

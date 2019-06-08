@@ -1,11 +1,4 @@
-{//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/Control.sv} {1 {vlog -work work -sv -stats=none {//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/Control.sv}
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module control
-
-Top level modules:
-	control
-
-} {} {}} {//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/pc.sv} {1 {vlog -work work -sv -stats=none {//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/pc.sv}
+{//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/pc.sv} {1 {vlog -work work -sv -stats=none {//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/pc.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module pc
 
@@ -49,6 +42,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	alu
 
+} {} {}} {//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/top.sv} {1 {vlog -work work -sv -stats=none {//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/top.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module top
+
+Top level modules:
+	top
+
 } {} {}} {//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv} {1 {vlog -work work -sv -stats=none {//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module prog123_tb
@@ -69,13 +69,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	dmem
-
-} {} {}} {//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/top.sv} {1 {vlog -work work -sv -stats=none {//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/top.sv}
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module top
-
-Top level modules:
-	top
 
 } {} {}} {//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/rf.sv} {1 {vlog -work work -sv -stats=none {//acsnfs4.ucsd.edu/CifsHomes/059/xic145/CSE 141l/OKX_ComputerArchitecture/Lab 2/rf.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016

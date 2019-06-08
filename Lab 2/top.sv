@@ -18,7 +18,9 @@ module top(
 								reg_write,		// signal for write enable for register file
 								mem_read,
 								mem_write,		// signal for write enable of data mem
+								alu_zero,
 								jmp;
+
   wire[1:0]  					wb_src;		   // writeback source for 2:4 mux 
   wire[2:0] 					alu_op;			// signal for ALU operation
 														
@@ -101,6 +103,7 @@ module top(
 
   reg_file rf(						 				// === register file ===
 		.clk,
+		.alu_zero,
 		.write_en(reg_write),		 			// write enable
 		.raddrA(inst[5:3]),						// read pointers 
 		.raddrB(inst[2:0]),						// write/read pointer
@@ -115,7 +118,8 @@ module top(
 		.op (alu_op),						 		// ALU operation from control unit
 		.in_a(do_a),								// alu input from register file
 		.in_b,		          					// alu input from 1:2 mux
-		.rslt(alu_out)			 					// alu output, used as input for 2:4 mux
+		.rslt(alu_out),			 					// alu output, used as input for 2:4 mux
+		.alu_zero
 	);		
 
   dmem dm1(						 					// === data memory ===

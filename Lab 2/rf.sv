@@ -3,13 +3,14 @@
 module reg_file #(parameter W=8, D=3)(
   input           clk,
                   write_en,
-  input  [ D-1:0] raddrA,
+                  alu_zero,
+  input  [D-1:0]  raddrA,
                   raddrB,
-						waddr,
-  input  [ W-1:0] data_in,
-  output [ W-1:0] data_outA,
-  output [ W-1:0] data_outB,
-  output [ W-1:0] reg_prime_out
+						      waddr,
+  input  [W-1:0] data_in,
+  output [W-1:0] data_outA,
+  output [W-1:0] data_outB,
+  output [W-1:0] reg_prime_out
     );
 
 // W bits wide [W-1:0] and 2**4 registers deep
@@ -22,7 +23,11 @@ assign reg_prime_out = registers[2**D];
 
 // sequential (clocked) writes	(likewise, can't write to addr 0)
 always_ff @ (posedge clk)
+begin
+  registers[2**D] <= alu_zero;
+
   if (write_en)	// protected constant
 	 registers[waddr] <= data_in;
+end
 
 endmodule

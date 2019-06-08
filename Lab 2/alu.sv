@@ -3,6 +3,7 @@ module alu (
   input       [2:0] op,			        // opcode
   input       [7:0] in_a,		        // operands in
                     in_b,
+  output logic      alu_zero,
   output logic[7:0] rslt);
   op_mne op_mnemonic;			          // type enum: used for convenient waveform viewing
 
@@ -21,7 +22,8 @@ module alu (
 //	  kBZA: z = !in_a;				          // branch absolute: same test in ALU
 //	  kSTR: rslt = in_a;			          // store in data_mem from reg_file
     endcase
-  end
+  alu_zero = rslt == 8'd0 ? 1:0;
+  end 
   assign  op_mnemonic = op_mne'(op);  // creates ALU opcode mnemonics in timing diagram
 
 endmodule
