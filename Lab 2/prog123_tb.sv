@@ -41,8 +41,8 @@ initial begin
     d1_in[i] = $random;              // create 15 messages
 // copy 15 original messages into first 30 bytes of memory 
 // rename "dm1" and/or "core" if you used different names for these
-    DUT.dm1.core[2*i]  = {5'b0,d1_in[i][11:9]};	 // concatenate
-    DUT.dm1.core[2*i+1]    = d1_in[i][8:1];
+    DUT.dm1.core[2*i+1]  = {5'b0,d1_in[i][11:9]};	 // concatenate
+    DUT.dm1.core[2*i]    = d1_in[i][8:1];
   end
   #10ns reset = 1'b0;
   #10ns req   = 1'b1;      // pulse request to DUT
