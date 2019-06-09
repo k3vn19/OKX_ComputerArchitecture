@@ -5,11 +5,11 @@
 *.qtl
 *.mti
 *.mpf
-wlft*
-transcript
 *.wlf
 *.rpt
 *.qsf
 testing.*
 
+transcript
+wlft*
 /work/*
