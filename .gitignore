@@ -1,1 +1,7 @@
 *.bak
+work/*
+*.qdb
+*.qpg
+*.qtl
+*.mti
+*.mpf
