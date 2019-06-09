@@ -75,6 +75,7 @@ module top(
   pc prog_counter(						 		    // program counter
         .clk (clk),
         .reset,
+        .req,
         .pc_in,
         .pc_out,
         .halt
@@ -133,7 +134,5 @@ module top(
         .jmp,
         .out(lut_out)	             		// branch distance in PC
   );
-
-  if (halt ==)
-
+  
 endmodule
