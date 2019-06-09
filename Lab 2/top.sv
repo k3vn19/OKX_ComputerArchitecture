@@ -8,13 +8,13 @@ module top(
   output logic halt);
 
   // list of interconnecting wires/buses w/ respective bit widths 
-  wire signed[10:0] 			lut_out;
-  wire[10:0] 					    pc_in,
+  wire signed[10:0]       lut_out;
+  wire[10:0]              pc_in,
                           pc_out;			// program counter
-  wire[8:0] 					    inst;			  // output of IF, instruction
+  wire[8:0]               inst;       // output of IF, instruction
   
                                       // === control wires ===
-  wire 							      pc_src,			// input for muxpc
+  wire                    pc_src,			// input for muxpc
                           alu_src,		// select signal for 1:2 mux before ALU in_b
                           reg_write,	// signal for write enable for register file
                           mem_read,
@@ -22,25 +22,24 @@ module top(
                           alu_zero,
                           jmp;
 
-  wire[1:0]  					    wb_src;		  // writeback source for 2:4 mux 
-  wire[2:0] 					    alu_op;			// signal for ALU operation
+  wire[1:0]               wb_src;		  // writeback source for 2:4 mux 
+  wire[2:0]               alu_op;			// signal for ALU operation
                                                         
                                       // === data mem ===		
-  wire[7:0] 					    dm_out,			// output of data memory, input to 2:4 mux
+  wire[7:0]               dm_out,			// output of data memory, input to 2:4 mux
                           dm_in,			// input data for data mem 
                           dm_adr;		  // address to read or write of data mem
                                                         
                                       // === ALU ===
-  wire[7:0] 					    in_b,			  // second input for ALU, comes from 1:2 mux
-                          alu_out,    // alu output
-                                                        
+  wire[7:0]               in_b,			  // second input for ALU, comes from 1:2 mux
+                          alu_out,    // alu output          
                                       // === register file ===
                           do_a,	      // reg file output, goes to in_a
                           do_b,			  // reg file output, used as first input to 1:2 mux
                           reg_prime_out;
-  wire[7:0] 					    rf_din;	    // reg file input data to be written
+  wire[7:0]               rf_din;	    // reg file input data to be written
                                       // === mux outputs === 
-  wire[7:0]						    wb_res,			// writeback
+  wire[7:0]               wb_res,			// writeback
                           get_res;		// get res
  
   // Module wire/bus connections
