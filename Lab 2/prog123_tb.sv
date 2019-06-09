@@ -4,7 +4,7 @@ module prog123_tb #(parameter AW=8, DW=8)();
 
 logic clk   = 0,             // clock source -- drives DUT input of same name
       reset = 1,	         // master reset -- drives DUT input of same name
-	  req   = 0;	         // req -- start next program -- drives DUT input
+	    req   = 0;	         // req -- start next program -- drives DUT input
 wire  ack;		    	     // ack -- from DUT -- done w/ program
 
 // program 1-specific variables
@@ -24,7 +24,7 @@ logic[11:1] d2_corr[15];     // recovered and corrected messages
 // program 3-specific variables
 logic[7:0] ctb,		       // how many bytes hold the pattern?
            cts,		       // how many pattern in the whole string?
-		   cto;		       // how many pattern fit inside each byte?
+		       cto;		       // how many pattern fit inside each byte?
 logic      ctp;		       // flags occurrence of patern in a given byte
 logic[3:0] pat;            // pattern to search for
 logic[255:0] str2; 	       // message string
