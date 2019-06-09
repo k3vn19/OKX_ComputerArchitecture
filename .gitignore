@@ -6,3 +6,8 @@ work/*
 *.mti
 *.mpf
 wlft*
+transcript
+*.wlf
+*.rpt
+*.qsf
+testing.*
