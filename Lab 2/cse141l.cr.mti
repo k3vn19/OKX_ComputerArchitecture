@@ -12,6 +12,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	control
 
+} {} {}} {C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv} {1 {vlog -work work -sv -stats=none {C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module prog123_tb
+
+Top level modules:
+	prog123_tb
+
 } {} {}} {C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/dmem.sv} {1 {vlog -work work -sv -stats=none {C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/dmem.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module dmem
@@ -63,6 +70,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	alu
 
+} {} {}} {C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/pc.sv} {1 {vlog -work work -sv -stats=none {C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/pc.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pc
+
+Top level modules:
+	pc
+
 } {} {}} {C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/top.sv} {1 {vlog -work work -sv -stats=none {C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/top.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module top
@@ -76,12 +90,5 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	mux_2to4
-
-} {} {}} {C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/pc.sv} {1 {vlog -work work -sv -stats=none {C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/pc.sv}
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module pc
-
-Top level modules:
-	pc
 
 } {} {}}

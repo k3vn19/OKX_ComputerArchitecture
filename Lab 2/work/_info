@@ -27,7 +27,7 @@ Z5 8C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/alu.sv
 Z6 FC:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/alu.sv
 L0 2
 Z7 OV;L;10.5b;63
-Z8 !s108 1560018580.000000
+Z8 !s108 1560036709.000000
 Z9 !s107 C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/alu.sv|
 Z10 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/alu.sv|
 !i113 1
@@ -59,7 +59,7 @@ R11
 R12
 vcontrol
 R0
-Z13 !s110 1560018581
+!s110 1560036710
 !i10b 1
 !s100 6GkJEUKmgh[VkYi<G;jTK0
 IB3P_dNQJPj50nWK9EfCdZ3
@@ -75,7 +75,7 @@ R7
 r1
 !s85 0
 31
-R8
+!s108 1560036710.000000
 !s107 C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/Control.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/Control.sv|
 !i113 1
@@ -83,7 +83,7 @@ R11
 R12
 Xdefinitions
 R0
-!s110 1560018578
+Z13 !s110 1560036708
 !i10b 1
 !s100 9HA]7WBQ]1]c[HL4iO^2M1
 I8nj5eMVXK@:PmCX<6zZ403
@@ -98,7 +98,7 @@ R7
 r1
 !s85 0
 31
-Z14 !s108 1560018578.000000
+!s108 1560036707.000000
 !s107 C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/definitions.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/definitions.sv|
 !i113 1
@@ -106,7 +106,7 @@ R11
 R12
 vdmem
 R0
-R13
+!s110 1560036711
 !i10b 1
 !s100 l_YE7K3LjF`KO;n^8T[1k3
 INYR]P^AGQPbQ:Rj_>IZQ?0
@@ -114,7 +114,7 @@ R2
 !s105 dmem_sv_unit
 S1
 R3
-Z15 w1559789104
+Z14 w1559789104
 8C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/dmem.sv
 FC:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/dmem.sv
 L0 1
@@ -122,7 +122,7 @@ R7
 r1
 !s85 0
 31
-Z16 !s108 1560018581.000000
+!s108 1560036711.000000
 !s107 C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/dmem.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/dmem.sv|
 !i113 1
@@ -130,7 +130,7 @@ R11
 R12
 vimem
 R0
-Z17 !s110 1560018582
+!s110 1560036714
 !i10b 1
 !s100 O^Lz3VTLJ1=C^P]MC4=:m0
 IHfM1EmM29=kUP@fF48`z^2
@@ -138,7 +138,7 @@ R2
 !s105 imem_sv_unit
 S1
 R3
-R15
+R14
 8C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/imem.sv
 FC:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/imem.sv
 L0 5
@@ -146,7 +146,7 @@ R7
 r1
 !s85 0
 31
-R16
+!s108 1560036714.000000
 !s107 C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/imem.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/imem.sv|
 !i113 1
@@ -154,7 +154,7 @@ R11
 R12
 vlut_pc
 R0
-R17
+!s110 1560036717
 !i10b 1
 !s100 Lbh9kaYn^3z7_6@mjJ;4z2
 I@IhJCC=R[cV6cbLZHXc=53
@@ -162,7 +162,7 @@ R2
 !s105 lut_pc_sv_unit
 S1
 R3
-Z18 w1559789105
+Z15 w1559789105
 8C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/lut_pc.sv
 FC:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/lut_pc.sv
 L0 5
@@ -170,7 +170,7 @@ R7
 r1
 !s85 0
 31
-!s108 1560018582.000000
+!s108 1560036717.000000
 !s107 C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/lut_pc.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/lut_pc.sv|
 !i113 1
@@ -178,7 +178,7 @@ R11
 R12
 vmux_2to1
 R0
-Z19 !s110 1560018579
+R13
 !i10b 1
 !s100 2gediTDaPOQI?C;UZ2>:@1
 IcN0mzI;U?Nb?f5m@Tc3YM0
@@ -186,7 +186,7 @@ R2
 !s105 _2to1MUX_sv_unit
 S1
 R3
-R15
+R14
 8C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/2to1MUX.sv
 FC:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/2to1MUX.sv
 L0 3
@@ -194,7 +194,7 @@ R7
 r1
 !s85 0
 31
-R14
+!s108 1560036708.000000
 !s107 C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/2to1MUX.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/2to1MUX.sv|
 !i113 1
@@ -202,7 +202,7 @@ R11
 R12
 vmux_2to4
 R0
-R19
+Z16 !s110 1560036709
 !i10b 1
 !s100 lf1^_HR4OgVDIbCec^gM40
 IClB6ofkWdZQgj[QhfnA>b2
@@ -210,7 +210,7 @@ R2
 !s105 _2to4MUX_sv_unit
 S1
 R3
-R15
+R14
 8C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/2to4MUX.sv
 FC:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/2to4MUX.sv
 L0 3
@@ -218,7 +218,7 @@ R7
 r1
 !s85 0
 31
-Z20 !s108 1560018579.000000
+R8
 !s107 C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/2to4MUX.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/2to4MUX.sv|
 !i113 1
@@ -226,7 +226,7 @@ R11
 R12
 vmux_3to8
 R0
-!s110 1560018580
+R16
 !i10b 1
 !s100 IgLkmT2?j2^i76]b<ZH[i0
 IX?25DiVFW^oF<N;KQYak;0
@@ -242,7 +242,7 @@ R7
 r1
 !s85 0
 31
-R20
+R8
 !s107 C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/3to8MUX.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/3to8MUX.sv|
 !i113 1
@@ -250,7 +250,7 @@ R11
 R12
 vpc
 R0
-Z21 !s110 1560018583
+Z17 !s110 1560036718
 !i10b 1
 !s100 [F1>@8A[A[HW49<T;<>Xl3
 I6b;h_DEWoP83W0^_jWEG43
@@ -258,7 +258,7 @@ R2
 !s105 pc_sv_unit
 S1
 R3
-R18
+R15
 8C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/pc.sv
 FC:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/pc.sv
 L0 1
@@ -266,7 +266,7 @@ R7
 r1
 !s85 0
 31
-Z22 !s108 1560018583.000000
+Z18 !s108 1560036718.000000
 !s107 C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/pc.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/pc.sv|
 !i113 1
@@ -274,7 +274,7 @@ R11
 R12
 vprog123_tb
 R0
-Z23 !s110 1560018584
+!s110 1560036720
 !i10b 1
 !s100 61_fLe?Qo=94^BA=j;F>h1
 IQ`fLHGZcLOYlW;M<FzBAL3
@@ -290,7 +290,7 @@ R7
 r1
 !s85 0
 31
-!s108 1560018584.000000
+Z19 !s108 1560036719.000000
 !s107 C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/prog123_tb.sv|
 !i113 1
@@ -298,7 +298,7 @@ R11
 R12
 vreg_file
 R0
-R21
+R17
 !i10b 1
 !s100 7DfzAiPGWDM5:GE^@m=UK3
 ILaUNL[_Pm[?Gf9T7HCE4Z2
@@ -306,7 +306,7 @@ R2
 !s105 rf_sv_unit
 S1
 R3
-Z24 w1560011733
+Z20 w1560011733
 8C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/rf.sv
 FC:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/rf.sv
 L0 3
@@ -314,7 +314,7 @@ R7
 r1
 !s85 0
 31
-R22
+R18
 !s107 C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/rf.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/rf.sv|
 !i113 1
@@ -322,7 +322,7 @@ R11
 R12
 vtop
 R0
-R23
+!s110 1560036719
 !i10b 1
 !s100 JgOPO>I4<:;Nk;cJ>3e5e1
 IMcJ`T@Nj_>8kHP`[bf;DN0
@@ -330,7 +330,7 @@ R2
 !s105 top_sv_unit
 S1
 R3
-R24
+R20
 8C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/top.sv
 FC:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/top.sv
 L0 4
@@ -338,7 +338,7 @@ R7
 r1
 !s85 0
 31
-R22
+R19
 !s107 C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/top.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/k3vn19/Documents/GitHub/OKX_ComputerArchitecture/Lab 2/top.sv|
 !i113 1
