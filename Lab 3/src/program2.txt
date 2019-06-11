@@ -1,9 +1,6 @@
-﻿get        r0        0        # get value 0 into r0
-        # r0 is i = 0 start of for loop
-loop:[a]
-# assign d_out[11:5] = d_in[15:9]
-# d_out[5] = d_in[9]
-get        r1        2                # get value 30
+﻿
+get        r0        0        # get value 0 into r0, r0 is i = 0 start of for loop
+get        r1        2                # "loop:" assign d_out[11:5] = d_in[15:9], d_out[5] = d_in[9]. r1 = 30.
 add        r1        r1                # 30 +30 = 60 into r1
 get        r3        4                #get value 4
 add        r3        r1                # add to get 64 into r3
@@ -11,8 +8,6 @@ get        r2        1                # get value 1
 add        r3        r2                # add to get 65
 add        r3        r0                # compute MSW address with offset of 65
 ld        r1        r3                # load from mem to get MSW
-
-
 get        r2        0                # clear r2
 xor        r2        r1                # move copy of MSW into r2
 shft        r2        0        3        # shift b9 left 7 times to be MSB
@@ -21,8 +16,7 @@ shft        r2        0        1
 shft        r2        1        3        # shift b9 to right 3 times to get into b5 spot
 get        r3        0                # clear r3
 xor        r3        r2                # move contents of r2 into r3                
-#d_out[6] = d_in[10]                
-get        r2        0                # clear r2
+get        r2        0                #d_out[6] = d_in[10], clear r2
 xor        r2        r1                # move copy of MSW into r2
 shft        r2        1        1        # shift b10 to right 1 time , clear lower bits
 shft        r2        0        3        # shift b10 to left 7 times, clear higher bits, make it MSB
@@ -30,8 +24,7 @@ shft        r2        0        3
 shft        r2        0        1
 shft        r2        1        2        # shift b10 right 2 times into b6 spot
 xor        r3        r2                # move contents of r2 into r3        
-#d_out[7] = d_in[11]
-get        r2        0                # clear r2
+get        r2        0                # #d_out[7] = d_in[11] clear r2
 xor        r2        r1                # move copy of MSW into r2
 shft        r2        1        2        # shift b11 right 2 times, clear lower bits
 shft        r2        0        3        # shift b11 to left 7 times, clear upper bits
@@ -39,22 +32,16 @@ shft        r2        0        3
 shft        r2        0        1
 shft        r2        1        1        # shift b11 to right 1 time into b7 spot
 xor        r3        r2                # move contents of r2 into r3
-#d_out[8] = d_in[12]
-get        r2        0                # clear r2
+get        r2        0                # #d_out[8] = d_in[12], clear r2
 xor        r2        r1                # move copy of MSW into r2
 shft        r2        1        3        # shift b12 right 3 times, clear lower bits
 shft        r2        0        3        # shift b12 to left 7 times, clear upper bits
 shft        r2        0        3
 shft        r2        0        1
 xor        r3        r2                # move contents of r2 into r3
-
-
 get        r2        3                # r2 = 124
 st        r3        r2                # store d_out LSW into mem[124]
-
-
-#d_out[9]= d_in[13]
-get        r2        0                # clear r2
+get        r2        0                # d_out[9]= d_in[13], clear r2
 xor        r2        r1                # move copy of d_in MSW into r2
 shft        r2        0        3        # shift b13 left 3 times, clear upper bits
 shft        r2        1        3        # shift b13 to right 7 times, clear upper bits into b9 spot
@@ -62,10 +49,7 @@ shft        r2        1        3
 shft        r2        1        1
 get        r3        0                # clear r3 because now in d_out MSW
 xor        r3        r2                # move contents of r2 into r3
-
-
-#d_out[10] = d_in[14]
-get        r2        0                # clear r2
+get        r2        0                # d_out[10] = d_in[14], clear r2
 xor        r2        r1                # move copy of MSW into r2
 shft        r2        0        2        # shift b14 left 2 times, clear upper bits
 shft        r2        1        3        # shift b14 to right 7 times, clear lower bits
@@ -73,10 +57,7 @@ shft        r2        1        3
 shft        r2        1        1
 shft        r2        0        1        # shift b14 left 1 times into b10 spot
 xor        r3        r2                # move contents of r2 into r3
-
-
-#d_out[11] = d_in[15]
-get        r2        0                # clear r2
+get        r2        0                # d_out[11] = d_in[15], clear r2
 xor        r2        r1                # move copy of MSW into r2
 shft        r2        0        1        # shift b15 left 1 times, clear upper bits
 shft        r2        1        3        # shift b15 to right 7 times, clear lower bits
@@ -84,24 +65,16 @@ shft        r2        1        3
 shft        r2        1        1
 shft        r2        0        2        # shift b15 left 2 times into b11 spot
 xor        r3        r2                # move contents of r2 into r3
-
-
 get        r2        3                # get value 124 in r2
 get        r4        1                #get value 1
 add        r2        r4                #add to get 125
 st        r3        r2                # store d_out MSW into mem[125]
-
-
-#assign p8 = d_in[ 8]; 
-#storing d_in LSW into r1
-get        r1        2                # get value 30
+get        r1        2                # storing d_in LSW into r1. assign p8 = d_in[ 8]; .get value 30
 add        r1        r1                # 30 +30 = 60 into r1
 get        r3        4                #get value 4
 add        r3        r1                # add to get 64 into r3
 add        r3        r0                # compute address of LSW with offset 64
 ld        r1        r3                # load from mem to get LSW
-
-
 get        r2        0                # clear r2
 xor        r2        r1                # move copy of LSW into r2
 shft        r2        1        3        # shift b8 right 7 times, clear lower bits
@@ -112,13 +85,7 @@ shft        r2        0        3
 shft        r2        0        1
 get        r4        0                # clear r4
 xor        r4        r2                # store shifted bits r2 into r4 that stores shifts p and s bits
-
-
-
-
-#assign d_out[ 4:2] = d_in[ 7:5];
-#d_out[2] = d_in[5];
-get        r2        3                # get value 124
+get        r2        3                # assign d_out[ 4:2] = d_in[ 7:5];. d_out[2] = d_in[5]; 
 ld        r3        r2                #get d_out LSW into r3
 get        r2        0                # clear r2
 xor        r2        r1                # move copy of LSW into r2
@@ -128,8 +95,7 @@ shft        r2        1        3
 shft        r2        1        1
 shft        r2        0        1        # shift b5 1 time to left to move into b2 spot
 xor        r3        r2                # move contents of r2 into r3
-#d_out[3] = d_in[6]
-get        r2        0                # clear r2
+get        r2        0                # #d_out[3] = d_in[6]. clear r2
 xor        r2        r1                # move copy of LSW into r2
 shft        r2        0        2        # shift b6 left 2 times, clear upper bits
 shft        r2        1        3        # shift b6 7 times right, clear lower bits
@@ -137,8 +103,7 @@ shft        r2        1        3
 shft        r2        1        1
 shft        r2        0        2        # shift b6 2 times to left to move into b3 spot
 xor        r3        r2                # move contents of r2 into r3
-#d_out[4] = d_in[7]
-get        r2        0                # clear r2
+get        r2        0                # d_out[4] = d_in[7], clear r2
 xor        r2        r1                # move copy of LSW into r2
 shft        r2        0        1        # shift b7 left 1 times, clear upper bits
 shft        r2        1        3        # shift b7 7 times right, clear lower bits
@@ -146,10 +111,7 @@ shft        r2        1        3
 shft        r2        1        1
 shft        r2        0        3        # shift b7 3 times to left to move into b4 spot
 xor        r3        r2                # move contents of r2 into r3
-
-
-#assign p4 = d_in[4]
-get        r2        0                # clear r2
+get        r2        0                # assign p4 = d_in[4] clear r2
 xor        r2        r1                # move copy of LSW into r2
 shft        r2        1        3        # shift b4 right 3 times, clear lower bits
 shft        r2        0        3        # shift b4 7 times left, clear upper bits
@@ -157,10 +119,7 @@ shft        r2        0        3
 shft        r2        0        1
 shft        r2        1        1        # shift b4 to right to get into p4 spot, index 1
 xor        r4        r2                # move contents of r2 into r5
-
-
-#assign d_out[1] = d_in[3]
-get        r2        0                # clear r2
+get        r2        0                # assign d_out[1] = d_in[3], clear r2
 xor        r2        r1                # move copy of LSW into r2
 shft        r2        1        2        # shift b3 right 2 times, clear lower bits
 shft        r2        0        3        # shift b3 7 times to left, clear upper bits
@@ -170,16 +129,9 @@ shft        r2        1        3        # shift b3 7 times to right to move into
 shft        r2        1        3
 shft        r2        1        1
 xor        r3        r2                # move contents of r2 into r3
-
-
 get        r2        3                # get value 124
 st        r3        r2                # store d_out LSW into mem[124]
-
-
-
-
-#assign p2 = d_in[2]
-get        r2        0                # clear r2
+get        r2        0                # assign p2 = d_in[2], clear r2
 xor        r2        r1                # move copy of LSW into r2
 shft        r2        1        1        # shift b2 right 1 times, clear lower bits
 shft        r2        0        3        # shift b2 7 times to left, clear upper bits
@@ -187,43 +139,28 @@ shft        r2        0        3
 shft        r2        0        1
 shft        r2        1        2        # shift b2 2 times to right into p2 spot
 xor        r4        r2                # store r2 into r4
-
-
-#assign p1 = d_in[1]
-get        r2        0                # clear r2
+get        r2        0                # assign p1 = d_in[1], clear r2
 xor        r2        r1                # move copy of LSW into r2
 shft        r2        0        3        # shift b1 7 times to left, clear upper bits
 shft        r2        0        3
 shft        r2        0        1
 shft        r2        1        3        #shift b1 3 times to right into p1 spot
 xor        r4        r2                #store r2 into r4
-
-
 get        r3        3                # get value 124
 get        r2        1                #get value 1
 add        r3        r2                # add 124 +1 = 125
 add        r3        r2                # add 125 + 1 = 126
 st        r4        r3                # store shifted bits r3 into mem[126]
-
-
-# reconstruct parity according to received data
-# program 1 black box for computing s bits
-#getting mem[126] 
-get        r2        3                #get value 124
-get        r3        1                #get value 1
+get        r2        3                #reconstruct parity according to received data.get value 124
+get        r3        1                # p1 black box for s bits. get value 1
 add        r2        r3                # add to get value 125
 add        r2        r3                #add to get value 126
 get        r5        0                # clear r3
-ld        r5        r2                #get p and s bits into r3        
-
-
-#getting d_out MSW
-get        r2        3                # get value 124
+ld        r5        r2                #get p and s bits into r3
+get        r2        3                # getting d_out MSW, get value 124
 get        r4        1                # get value 1
 add        r2        r4                #add to get value 125
 ld        r1        r2                # get mem [125] d_out MSW into r1
-
-
 get        r2        0                # clear register 2
 xor        r2        r1                # move contents of r1 to r2 
 shft        r2        1        2        # put b11 into r2 by shifting right 
@@ -275,16 +212,10 @@ shft        r2        1        1
 xor        r3        r2                # xor b5 to the other xor’d bits, this value is s8.
 shft        r3        0        3        #shift s8 3 bits to left to get into position s8
 xor        r5        r3                # place s8 into mem[126] concatenation
-
-
-#computing s4
-#get d_out MSW mem[125]
-get        r2        3                #get value 124
+get        r2        3                #compute s4. get d_out MSW mem[125]. get value 124
 get        r3        1                #get value 1
 add        r2        r3                #add 124 + 1 = 125
 ld        r1        r2                #load d_out MSW from mem[125] into r1
-
-
 get        r2        0                # clear register 2
 xor        r2        r1                # move contents of r1 to r2 
 shft        r2        1        2        # put b11 into r2 by shifting right 
@@ -337,13 +268,8 @@ shft        r2        1        3        # put {0 0 0 0 0 0 0 b2} into r2
 shft        r2        1        3
 shft        r2        1        1
 xor        r3        r2                # xor b2 with other xor’d bits, at this point r3 has s4
-
-
-#Store s4
-shft        r3        0        2        #shift s4 to left 2 times into s4 position
+shft        r3        0        2        #Store s4. shift s4 to left 2 times into s4 position
 xor        r5        r3                #add s4 into s and p bits word
-
-
 get        r1        3                # r1 =124
 get        r2        1                #get value1
 add        r1        r2                # put address of 125 MSW into r1
@@ -400,13 +326,8 @@ shft        r2        1        3        # put {0 0 0 0 0 0 0 b1} into r2
 shft        r2        1        3
 shft        r2        1        1
 xor        r3        r2                # xor b1 to the other xor’d bits
-
-
-#put s2 into s and p word
-shft        r3        0        1        #shift s2 1 time to left to get into s2 position
+shft        r3        0        1        #put s2 into s and p word. shift s2 1 time to left 
 xor        r5        r3                #add s2 into s and p word
-
-
 get        r1        3               # r1 =124
 get        r2        1                #get value 1
 add        r1        r2               # put address of 125 MSW into r1
@@ -465,25 +386,14 @@ shft        r2        1        3
 shft        r2        1        1
 xor        r3        r2                # xor b1 with the other xor’d bits. this is s1.
 xor        r5        r3                # add s1 to s and p word
-
-
-#store s & p word into mem[126]
-get        r2        3        #get value 124
+get        r2        3        # store s & p word into mem[126]. get value 124
 get        r3        1        #get value 1 
 add        r2        r3        
 add        r2        r3        # get value 126
 st        r5        r2
-
-
-#assign err = {s8^p8,s4^p4,s2^p2,s1^p1};
-
-
-#s1^p1
-# word at mem[126] is in r5
-#isolate p1
-get        r1        0                #clear r1
-xor        r1        r5                # move r5(s and p word) into r1
-get        r2        0                # clear r2
+get        r1        0                # assign err = {s8^p8,s4^p4,s2^p2,s1^p1};. s1^p1
+xor        r1        r5                # word at mem[126] is in r5. move r5(s and p word) into r1
+get        r2        0                # solate p1. clear r2
 xor        r2        r1                # move copy of word into r2
 shft        r2        0        3        # shift p1 to left 3 times, clear upper bits
 shft        r2        1        3        # shift p1 to right 7 times, clear lower bits and move to c1 spot        
@@ -491,8 +401,7 @@ shft        r2        1        3
 shft        r2        1        1        
 get        r3        0                # clear r3
 xor        r3        r2                # store r2 into r3
-#isolate s1
-get        r2        0                # clear r2
+get        r2        0                # isolate s1. clear r2
 xor        r2        r1                # move copy of word into r2
 shft        r2        0        3        # shift s1 to left 7 times, clear upper bits
 shft        r2        0        3
@@ -501,11 +410,7 @@ shft        r2        1        3        # shift s1 to right 7 times, move to c1 
 shft        r2        1        3
 shft        r2        1        1        
 xor        r3        r2                # store s1 ^ p1 into r3
-
-
-#s2^p2
-#isolate s2
-get        r2        0                # clear r2
+get        r2        0                # s2^p2. isolate s2. clear r2
 xor        r2        r1                # move copy of word into r2
 shft        r2        1        1        # shift s2 to right 1 time, clear lower bits
 shft        r2        0        3        # shift s2 to left 7 times, clear upper bits
@@ -514,8 +419,7 @@ shft        r2        0        1
 shft        r2        1        3        # shift s2 to right 6 times, move to c2 spot        
 shft        r2        1        3
 xor        r3        r2                # store r2 into r3
-#isolate p2
-get        r2        0                # clear r2
+get        r2        0                # isolate p2. clear r2
 xor        r2        r1                # move copy of word into r2
 shft        r2        0        2        # shift p2 to left 2 time, clear upper bits
 shft        r2        1        3        # shift p2 to right 7 times, clear lower bits
@@ -524,11 +428,7 @@ shft        r2        1        1
 shft        r2        0        3        # shift p2 to left 1 times, move to c2 spot        
 shft        r2        1        3
 xor        r3        r2                # store p2^s2 into r3
-
-
-#s4^p4
-#isolate s4
-get        r2        0                # clear r2
+get        r2        0                # s4^p4. isolate s4. clear r2
 xor        r2        r1                # move copy of word into r2
 shft        r2        1        2        # shift s4 to right 2 time, clear lower bits
 shft        r2        0        3        # shift s4 to left 7 times, clear upper bits
@@ -537,8 +437,7 @@ shft        r2        0        1
 shft        r2        1        3        # shift s4 to right 5 times, move to c4 spot        
 shft        r2        1        2
 xor        r3        r2                # store r2 into r3
-#isolate p4
-get        r2        0                # clear r2
+get        r2        0                ##isolate p4, clear r2
 xor        r2        r1                # move copy of word into r2
 shft        r2        0        1        # shift p4 to left 1 time, clear upper bits
 shft        r2        1        3        # shift p4 to right 7 times, clear lower bits
@@ -546,19 +445,14 @@ shft        r2        1        3
 shft        r2        1        1
 shft        r2        0        2        # shift p4 to left 2 times, move to c4 spot        
 xor        r3        r2                # store p4^s4 into r3
-
-
-#s8^p8
-#isolate p8
-get        r2        0                # clear r2
+get        r2        0                # s8^p8. isolate p8. clear r2
 xor        r2        r1                # move copy of word into r2
 shft        r2        1        3        # shift p8 to right 7 times, clear lower bits
 shft        r2        1        3
 shft        r2        1        1
 shft        r2        0        3        # shift p8 to left 3 times, move to c8 spot        
 xor        r3        r2                # store r2 into r3
-#isolate s8
-get        r2        0                # clear r2
+get        r2        0                # isolate s8. clear r2
 xor        r2        r1                # move copy of word into r2
 shft        r2        1        3        # shift s8 to right 3 time, clear lower bits
 shft        r2        0        3        # shift s8 to left 7 times, clear upper bits
@@ -567,45 +461,24 @@ shft        r2        0        1
 shft        r2        1        3        # shift s8 to right 4 times, move to c8 spot
 shft        r2        1        1        
 xor        r3        r2                # store s8^p8 into r3
-
-
 get        r2        3                # get value 124
 get        r4        1                # get value 1
 add        r4        r4                # r4=2
 add        r4        r2                # r4 = 124+2=126
 st        r3        r4                # store err into mem 126
-
-
-#always_comb for (int k = 1; k < 16; k++)
-#err is in r4
-xor        r4        r3
-#r5 is the changing d_out_corr 
-get        r5        0                #clear r5 to be empty to store all the shift bits for MSW
-
-
-#get d_in LSW mem[64] into r1
-get        r1        2                # get value 30
+get        r4        0                # always_comb for (int k = 1; k < 16; k++).
+xor        r4        r3                # err is in r4 
+get        r5        0                # r5 is the changing d_out_corr, store shift bits for MSW in r5
+get        r1        2                # get d_in LSW mem[64] into r1. get value 30
 get        r2        2                # get value 30
 add        r2        r1                #add to get 60
 get        r1        4                #get value 4
 add        r2        r1                #add to get 64
 ld        r1        r2                # load from mem[64] to get d_in LSW into r1
-
-
-#getting k = 1 into r2
-get        r2        1                #  r2 is k = 1 start of for loop
-
-
-#if else statements for 1-8th bit/LSW
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else1_loop        # if err != k then go to else _loop
-
-
-#inside k = 1 if loop
-get        r3        0                # clear r3
+get        r2        1                # getting k = 1 into r2,r2 is k = 1 start of for loop
+xor        r4        r2                #1-8th bit/LSW,check if err==k, k = 1  if err == k then r4 will be 0 
+jnz        2        # if err != k then go to else _loop
+get        r3        0                ##inside k = 1 if loop, clear r3
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        3        # shift b1 7 times to left, clear upper bits
 shft        r3        0        3
@@ -616,11 +489,9 @@ shft        r3        1        1
 get        r6        1                #get value 1 in r6
 xor        r3        r6                #get inverse bit into r3
 xor        r5        r3                #move bit into place in r5 MSW
-jnz        r6        end_k1        #go to next k = 2
-
-
-else1_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        3        #go to next k = 2
+get        r3        0                # "else1_loop:" clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        0        3        # shift b1 7 times to left, clear upper bits
 shft        r3        0        3
@@ -629,20 +500,11 @@ shft        r3        1        3        # shift b1 7 times to right, move to 1st
 shft        r3        1        3
 shft        r3        1        1
 xor        r5        r3                #move bit into place in r5 MSW
-
-
-end_k1:
-get        r6        1                #get value 1 into r6
+get        r6        1                # "end_k1:"get value 1 into r6
 add        r2        r6                #k++
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else2_loop                # if err != k then go to else _loop
-
-
-#inside k = 2 if loop
-get        r3        0                # clear r3
+xor        r4        r2                ##check if err==k, k = 1  if err == k then r4 will be 0 
+jnz        4                # if err != k then go to else _loop
+get        r3        0                # #inside k = 2 if loop,clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        0        3        # shift b2 6 times to left, clear upper bits
 shft        r3        0        3
@@ -653,11 +515,9 @@ get        r6        1                #get value 1 in r6
 xor        r3        r6                #get inverse bit into r3
 shft        r3        0        1        #shift b2 1 time to left into position 2
 xor        r5        r3                #move bit into place in r5 MSW
-jnz        r6        end_k2        #go to next k = 3
-
-
-else2_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        5        #go to next k = 3
+get        r3        0                # "else2_loop:" clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        0        3        # shift b2 6 times to left, clear upper bits
 shft        r3        0        3
@@ -665,23 +525,12 @@ shft        r3        1        3        # shift b2 7 times to right, clear lower
 shft        r3        1        3
 shft        r3        1        1
 shft        r3        0        1        #shift b2 1 time to left into position 2
-
-
 xor        r5        r3                #move bit into place in r5 MSW
-
-
-end_k2:
-get        r6        1
+get        r6        1                  #end_k2:"
 add        r2        r6                #k++
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else3_loop                # if err != k then go to else _loop
-
-
-#inside k = 3 if loop
-get        r3        0                # clear r3
+xor        r4        r2                # check if err==k, k = 1  if err == k then r4 will be 0 
+jnz        6       # if err != k then go to else _loop
+get        r3        0                # inside k = 3 if loop, clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        0        3        # shift b3 5 times to left, clear upper bits
 shft        r3        0        2
@@ -692,11 +541,9 @@ get        r6        1                #get value 1 in r6
 xor        r3        r6                #get inverse bit into r3
 shft        r3        0        2        #shift b3 2 times to left into position 3
 xor        r5        r3                #move bit into place in r5 MSW
-jnz        r6        end_k3        #go to next k = 4
-
-
-else3_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        7        #go to next k = 4
+get        r3        0                # "else3_loop:"clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        0        3        # shift b3 5 times to left, clear upper bits
 shft        r3        0        2
@@ -705,20 +552,11 @@ shft        r3        1        3
 shft        r3        1        1
 shft        r3        0        2        #shift b3 2 times to left into position 3
 xor        r5        r3                #move bit into place in r5 MSW
-
-
-end_k3:
-get        r6        1
+get        r6        1                  #"end_k3:"
 add        r2        r6                #k++
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else4_loop        # if err != k then go to else _loop
-
-
-#inside k = 4 if loop
-get        r3        0                # clear r3
+xor        r4        r2                # check if err==k,k = 1  if err == k then r4 will be 0 
+jnz        8        # if err != k then go to else _loop
+get        r3        0                # inside k = 4 if loop, clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        0        3        # shift b4 4 times to left, clear upper bits
 shft        r3        0        1
@@ -729,11 +567,9 @@ get        r6        1                #get value 1 in r6
 xor        r3        r6                #get inverse bit into r3
 shft        r3        0        3        #shift b4 3 times to left into position 4
 xor        r5        r3                #move bit into place in r5 MSW
-jnz        r6        end_k3        #go to next k = 5
-
-
-else4_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        9       #go to next k = 5
+get        r3        0                # "else4_loop:" clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        0        3        # shift b4 4 times to left, clear upper bits
 shft        r3        0        1
@@ -742,20 +578,11 @@ shft        r3        1        3
 shft        r3        1        1
 shft        r3        0        3        #shift b4 3 times to left into position 4
 xor        r5        r3                #move bit into place in r5 MSW
-
-
-end_k4:
-get        r6        1
+get        r6        1                  # "end_k4:"
 add        r2        r6                #k++
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else5_loop        # if err != k then go to else _loop
-
-
-#inside k = 5 if loop
-get        r3        0                # clear r3
+xor        r4        r2                ##check if err==k,k = 1  if err == k then r4 will be 0 
+jnz        10        # if err != k then go to else _loop
+get        r3        0                # #inside k = 5 if loop,clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        0        3        # shift b5 3 times to left, clear upper bits
 shft        r3        1        3        # shift b5 7 times to right, move to LSB
@@ -766,11 +593,9 @@ xor        r3        r6                #get inverse bit into r3
 shft        r3        0        3        #shift b5 4 times to left into position 5
 shft        r3        0        1
 xor        r5        r3                #move bit into place in r5 MSW
-jnz        r6        end_k5        #go to next k = 6
-
-
-else5_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        11        #go to next k = 6
+get        r3        0                # "else5_loop:" clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        0        3        # shift b5 3 times to left, clear upper bits
 shft        r3        1        3        # shift b5 7 times to right, clear lower bits
@@ -779,20 +604,11 @@ shft        r3        1        1
 shft        r3        0        3        #shift b5 4 times to left into position 5
 shft        r3        0        1
 xor        r5        r3                #move bit into place in r5 MSW
-
-
-end_k5:
-get        r6        1
+get        r6        1                  #"end_k5:"
 add        r2        r6                #k++
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else6_loop        # if err != k then go to else _loop
-
-
-#inside k = 6 if loop
-get        r3        0                # clear r3
+xor        r4        r2                ##check if err==k,k = 1  if err == k then r4 will be 0 
+jnz        12        # if err != k then go to else _loop
+get        r3        0                # #inside k = 6 if loop,clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        0        2        # shift b6 2 times to left, clear upper bits
 shft        r3        1        3        # shift b6 7 times to right, move to LSB
@@ -803,11 +619,9 @@ xor        r3        r6                #get inverse bit into r3
 shft        r3        0        3        #shift b6 5 times to left into position 6
 shft        r3        0        2
 xor        r5        r3                #move bit into place in r5 MSW
-jnz        r6        end_k6        #go to next k = 7
-
-
-else6_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        13        #go to next k = 7
+get        r3        0                # "else6_loop:" clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        0        2        # shift b6 2 times to left, clear upper bits
 shft        r3        1        3        # shift b6 7 times to right, clear lower bits
@@ -816,20 +630,11 @@ shft        r3        1        1
 shft        r3        0        3        #shift b6 5 times to left into position 6
 shft        r3        0        2
 xor        r5        r3                #move bit into place in r5 MSW
-
-
-end_k6:
-get        r6        1
+get        r6        1                  #end_k6:"
 add        r2        r6                #k++
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else7_loop        # if err != k then go to else _loop
-
-
-#inside k = 7 if loop
-get        r3        0                # clear r3
+xor        r4        r2                # check if err==k,k = 1  if err == k then r4 will be 0 
+jnz        14        # if err != k then go to else _loop
+get        r3        0                # inside k = 7 if loop, clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        0        1        # shift b7 1 times to left, clear upper bits
 shft        r3        1        3        # shift b7 7 times to right, move to LSB
@@ -840,11 +645,9 @@ xor        r3        r6                #get inverse bit into r3
 shft        r3        0        3        #shift b7 6 times to left into position 7
 shft        r3        0        3
 xor        r5        r3                #move bit into place in r5 MSW
-jnz        r6        end_k7        #go to next k = 8
-
-
-else7_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        15        #go to next k = 8
+get        r3        0                # "else7_loop:" clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        0        1        # shift b7 1 times to left, clear upper bits
 shft        r3        1        3        # shift b7 7 times to right, clear lower bits
@@ -853,20 +656,11 @@ shft        r3        1        1
 shft        r3        0        3        #shift b7 6 times to left into position 7
 shft        r3        0        3
 xor        r5        r3                #move bit into place in r5 MSW
-
-
-end_k7:
-get        r6        1
+get        r6        1                  #"end_k7:"
 add        r2        r6                #k++
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else8_loop        # if err != k then go to else _loop
-
-
-#inside k = 8 if loop
-get        r3        0                # clear r3
+xor        r4        r2                # check if err==k,k = 1  if err == k then r4 will be 0 
+jnz        16        # if err != k then go to else _loop
+get        r3        0                # inside k = 8 if loop,clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        1        3        # shift b8 7 times to right, move to LSB
 shft        r3        1        3
@@ -877,11 +671,9 @@ shft        r3        0        3        #shift b8 7 times to left into position 
 shft        r3        0        3
 shft        r3        0        1
 xor        r5        r3                #move bit into place in r5 MSW
-jnz        r6        end_k8        #go to next k = 9 LSW
-
-
-else8_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        17        #go to next k = 9 LSW
+get        r3        0                # "else8_loop:" clear r3
 xor        r3        r1                # move copy of MSW r1 into r3
 shft        r3        1        3        # shift b8 7 times to right, clear lower bits
 shft        r3        1        3
@@ -890,40 +682,22 @@ shft        r3        0        3        #shift b8 7 times to left into position 
 shft        r3        0        3
 shft        r3        0        1
 xor        r5        r3                #move bit into place in r5 MSW
-
-
-end_k8:
-get        r6        1
+get        r6        1                  #"end_k8:"
 add        r2        r6                #k++
-
-
-#store LSW into d_in_corr LSW mem[60]
-get        r3        2                #get value 30
+get        r3        2                # store LSW into d_in_corr LSW mem[60],get value 30
 add        r3        r3                #add to get 60 into r3
 st        r5        r3                #store shifted bits d_in LSW into d_in_corr LSW mem[60]
-
-
-#get d_in MSW for bits 9-16
-get        r3        2                # get value 30
+get        r3        2                # get d_in MSW for bits 9-16, get value 30
 add        r3        r3                #add to 60 into r1
 get        r1        4                # get value 4
 add        r3        r1                #add to get 64
 get        r1        1                #get value 1
 add        r3        r1                #get value 65                
 ld        r1        r3                # load from mem[65] to get d_in MSW into r1
-
-
-#if else statements for 9-16th bit/MSW
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else9_loop        # if err != k then go to else _loop
+xor        r4        r2                #9-16th bit/MSWcheck if err==k,k = 1  if err == k then r4 will be 0 
+jnz        18        # if err != k then go to else _loop
 get        r5        0                #clear r5 to be empty to store all the shift bits for LSW
-
-
-#inside k = 9 if loop
-get        r3        0                # clear r3
+get        r3        0                # inside k = 9 if loop,clear r3
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        3        # shift b9 7 times to left, clear upper bits
 shft        r3        0        3
@@ -934,11 +708,9 @@ shft        r3        1        1
 get        r6        1                #get value 1 in r6
 xor        r3        r6                #get inverse bit into r3
 xor        r5        r3                #move bit into place in r5 LSW
-jnz        r6        end_k9        #go to next k = 10
-
-
-else9_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        19        #go to next k = 10
+get        r3        0                # "else9_loop:" clear r3
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        3        # shift b9 7 times to left, clear upper bits
 shft        r3        0        3
@@ -947,20 +719,11 @@ shft        r3        1        3        # shift b9 7 times to right, move to 1st
 shft        r3        1        3
 shft        r3        1        1
 xor        r5        r3                #move bit into place in r5 LSW
-
-
-end_k9:
-get        r6        1                #get value 1 into r6
+get        r6        1                # "end_k9:" get value 1 into r6
 add        r2        r6                #k++
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else10_loop        # if err != k then go to else _loop
-
-
-#inside k = 10 if loop
-get        r3        0                # clear r3
+xor        r4        r2                # check if err==k, k = 1  if err == k then r4 will be 0 
+jnz        20        # if err != k then go to else _loop
+get        r3        0                # inside k = 10 if loop, clear r3
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        3        # shift b10 6 times to left, clear upper bits
 shft        r3        0        3
@@ -971,11 +734,9 @@ get        r6        1                #get value 1 in r6
 xor        r3        r6                #get inverse bit into r3
 shft        r3        0        1        #shift b10 1 time to left to get into 2nd position
 xor        r5        r3                #move bit into place in r5 LSW
-jnz        r6        end_k10        #go to next k = 11
-
-
-else10_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        21        #go to next k = 11
+get        r3        0                # "else10_loop:"clear r3
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        3        # shift b10 6 times to left, clear upper bits
 shft        r3        0        3
@@ -984,20 +745,11 @@ shft        r3        1        3
 shft        r3        1        1
 shft        r3        0        1        #shift b10 1 time to left to get into 2nd position
 xor        r5        r3                #move bit into place in r5 LSW
-
-
-end_k10:
-get        r6        1                #get value 1 into r6
+get        r6        1                # "end_k10:" get value 1 into r6
 add        r2        r6                #k++
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else11_loop                # if err != k then go to else _loop
-
-
-#inside k = 11 if loop
-get        r3        0                # clear r3
+xor        r4        r2                # check if err==k, k = 1  if err == k then r4 will be 0 
+jnz        22        # if err != k then go to else _loop
+get        r3        0                #  inside k = 11 if loop,clear r3
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        3        # shift b11 5 times to left, clear upper bits
 shft        r3        0        2
@@ -1008,11 +760,9 @@ get        r6        1                #get value 1 in r6
 xor        r3        r6                #get inverse bit into r3
 shft        r3        0        2        #shift b11 2 time to left to get into 3rd position
 xor        r5        r3                #move bit into place in r5 LSW
-jnz        r6        end_k11        #go to next k = 12
-
-
-else11_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        23        #go to next k = 12
+get        r3        0                # "else11_loop:" clear r3
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        3        # shift b11 5 times to left, clear upper bits
 shft        r3        0        2
@@ -1021,22 +771,11 @@ shft        r3        1        3
 shft        r3        1        1
 shft        r3        0        2        #shift b11 2 time to left to get into 3rd position
 xor        r5        r3                #move bit into place in r5 LSW
-
-
-end_k11:
-get        r6        1                #get value 1 into r6
+get        r6        1                #"end_k11:" get value 1 into r6
 add        r2        r6                #k++
-
-
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else12_loop        # if err != k then go to else _loop
-
-
-#inside k = 12 if loop
-get        r3        0                # clear r3
+xor        r4        r2                # check if err==k, k = 1  if err == k then r4 will be 0 
+jnz        24        # if err != k then go to else _loop
+get        r3        0                # inside k = 12 if loop, clear r3
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        3        # shift b12 4 times to left, clear upper bits
 shft        r3        0        1
@@ -1047,11 +786,9 @@ get        r6        1                #get value 1 in r6
 xor        r3        r6                #get inverse bit into r3
 shft        r3        0        3        #shift b12 3 time to left to get into 4th position
 xor        r5        r3                #move bit into place in r5 LSW
-jnz        r6        end_k12        #go to next k = 13
-
-
-else12_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        25        #go to next k = 13
+get        r3        0                # "else12_loop:" clear r3
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        3        # shift b12 4 times to left, clear upper bits
 shft        r3        0        1
@@ -1060,20 +797,11 @@ shft        r3        1        3
 shft        r3        1        1
 shft        r3        0        3        #shift b12 3 times to left to get into 4th position
 xor        r5        r3                #move bit into place in r5 LSW
-
-
-end_k12:
-get        r6        1                #get value 1 into r6
+get        r6        1                #get value 1 into r6 "end_k12:"
 add        r2        r6                #k++
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else13_loop        # if err != k then go to else _loop
-
-
-#inside k = 13 if loop
-get        r3        0                # clear r3
+xor        r4        r2                # check if err==k, k = 1  if err == k then r4 will be 0 
+jnz        26        # if err != k then go to else _loop
+get        r3        0                #inside k = 13 if loop,clear r3
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        3        # shift b13 3 times to left, clear upper bits
 shft        r3        1        3        # shift b13 7 times to right, move to LSB
@@ -1084,11 +812,9 @@ xor        r3        r6                #get inverse bit into r3
 shft        r3        0        3        #shift b13 4 time to left to get into 5th position
 shft        r3        0        1
 xor        r5        r3                #move bit into place in r5 LSW
-jnz        r6        end_k13        #go to next k = 14
-
-
-else13_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        27        #go to next k = 14
+get        r3        0                # clear r3 "else13_loop:"
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        3        # shift b13 3 times to left, clear upper bits
 shft        r3        1        3        # shift b13 7 times to right, clear lower bits
@@ -1097,20 +823,11 @@ shft        r3        1        1
 shft        r3        0        3        #shift b13 4 times to left to get into 5th position
 shft        r3        0        1
 xor        r5        r3                #move bit into place in r5 LSW
-
-
-end_k13:
-get        r6        1                #get value 1 into r6
+get        r6        1                #get value 1 into r6 "end_k13:"
 add        r2        r6                #k++
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else14_loop        # if err != k then go to else _loop
-
-
-#inside k = 14 if loop
-get        r3        0                # clear r3
+xor        r4        r2                # check if err==k, k = 1  if err == k then r4 will be 0 
+jnz        28        # if err != k then go to else _loop
+get        r3        0                #inside k = 14 if loop,clear r3
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        2        # shift b14 2 times to left, clear upper bits
 shft        r3        1        3        # shift b14 7 times to right, move to LSB
@@ -1121,11 +838,9 @@ xor        r3        r6                #get inverse bit into r3
 shft        r3        0        3        #shift b14 5 times to left to get into 6th position
 shft        r3        0        2
 xor        r5        r3                #move bit into place in r5 LSW
-jnz        r6        end_k14        #go to next k = 15
-
-
-else14_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        29        #go to next k = 15
+get        r3        0                # clear r3 "else14_loop:"
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        2        # shift b14 2 times to left, clear upper bits
 shft        r3        1        3        # shift b14 7 times to right, clear lower bits
@@ -1134,20 +849,11 @@ shft        r3        1        1
 shft        r3        0        3        #shift b14 5 times to left to get into 6th position
 shft        r3        0        2
 xor        r5        r3                #move bit into place in r5 LSW
-
-
-end_k14:
-get        r6        1                #get value 1 into r6
+get        r6        1                #get value 1 into r6 "end_k14:"
 add        r2        r6                #k++
-
-
-#check if err==k
-xor        r4        r2                #k = 1  if err == k then r4 will be 0 
-jnz        r4        else15_loop                # if err != k then go to else _loop
-
-
-#inside k = 15 if loop
-get        r3        0                # clear r3
+xor        r4        r2                # check if err==k, k = 1  if err == k then r4 will be 0 
+jnz        30                # if err != k then go to else _loop
+get        r3        0                # inside k = 15 if loop,clear r3
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        1        # shift b15 1 times to left, clear upper bits
 shft        r3        1        3        # shift b15 7 times to right, move to LSB
@@ -1158,11 +864,9 @@ xor        r3        r6                #get inverse bit into r3
 shft        r3        0        3        #shift b15 6 times to left to get into 7th position
 shft        r3        0        3
 xor        r5        r3                #move bit into place in r5 LSW
-jnz        r6        end_k15        #go to end
-
-
-else15_loop:
-get        r3        0                # clear r3
+get        r6        1                #get value 1 in r6
+jnz        31        #go to end
+get        r3        0                # clear r3 "else15_loop:"
 xor        r3        r1                # move copy of LSW r1 into r3
 shft        r3        0        1        # shift b15 1 times to left, clear upper bits
 shft        r3        1        3        # shift b15 7 times to right, clear lower bits
@@ -1171,30 +875,16 @@ shft        r3        1        1
 shft        r3        0        3        #shift b15 6 times to left to get into 6th position
 shft        r3        0        3
 xor        r5        r3                #move bit into place in r5 LSW
-
-
-end_k15:
-get        r6        1                #get value 1 into r6
+get        r6        1                #get value 1 into r6 "end_k15:"
 add        r2        r6                #k++
-
-
-#store MSW into d_in_corr MSW mem[61]
-get        r3        2                #get value 30
+get        r3        2                #store MSW into d_in_corr MSW mem[61],get value 30
 get        r6        2                #get value 30
 add        r3        r6                #add to get 60 into r3
 get        r2        1                # get value 1
 add        r3        r2                #get value 61
 st        r5        r3                #store shifted bits d_in MSW into d_in_corr MSW mem[61]
-
-
-
-
-#assign d_out_corr[11:5] = d_in_corr[15:9];
-xor        r1        r5        # move d_in_corr from r5 to r1
-
-
-#d_out_corr[5] = d_in_corr[9]
-get        r2        0                # clear r2
+xor        r1        r5        #assign d_out_corr[11:5] = d_in_corr[15:9]; move d_in_corr r5->r1
+get        r2        0                #  d_out_corr[5] = d_in_corr[9], clear r2
 xor        r2        r1                # move copy into r2
 shft        r2        0        3        # shift b9 left 7 times to be MSB
 shft        r2        0        3
@@ -1202,8 +892,7 @@ shft        r2        0        1
 shft        r2        1        3        # shift b9 to right 3 times to get into b5 spot
 get        r3        0                # clear r3 to store shift bits for d_out_corr
 xor        r3        r2                # move contents of r2 into r3                
-#d_out_corr[6] = d_in_corr[10]                
-get        r2        0                # clear r2
+get        r2        0                #d_out_corr[6] = d_in_corr[10],clear r2
 xor        r2        r1                # move copy of MSW into r2
 shft        r2        1        1        # shift b10 to right 1 time , clear lower bits
 shft        r2        0        3        # shift b10 to left 7 times, clear higher bits, make it MSB
@@ -1211,8 +900,7 @@ shft        r2        0        3
 shft        r2        0        1
 shft        r2        1        2        # shift b10 right 2 times into b6 spot
 xor        r3        r2                # move contents of r2 into r3        
-#d_out_corr[7] = d_in_corr[11]
-get        r2        0                # clear r2
+get        r2        0                #d_out_corr[7] = d_in_corr[11], clear r2
 xor        r2        r1                # move copy of MSW into r2
 shft        r2        1        2        # shift b11 right 2 times, clear lower bits
 shft        r2        0        3        # shift b11 to left 7 times, clear upper bits
@@ -1220,16 +908,13 @@ shft        r2        0        3
 shft        r2        0        1
 shft        r2        1        1        # shift b11 to right 1 time into b7 spot
 xor        r3        r2                # move contents of r2 into r3
-#d_out_corr[8] = d_in_corr[12]
-get        r2        0                # clear r2
+get        r2        0                # d_out_corr[8] = d_in_corr[12],clear r2
 xor        r2        r1                # move copy of MSW into r2
 shft        r2        1        3        # shift b12 right 3 times, clear lower bits
 shft        r2        0        3        # shift b12 to left 7 times, clear upper bits
 shft        r2        0        3
 shft        r2        0        1
 xor        r3        r2                # move contents of r2 into r3
-
-
 get        r2        2                # get value 30
 get        r4        7                # get value 32
 add        r2        r4                # add 30 + 32 = 62
@@ -1238,10 +923,7 @@ get        r4        1                # get value 1
 add        r2        r4                # add 94 + 1 = 95
 add        r2        r0                #add to get mem + offset
 st        r3        r2                # store d_out_corr MSW into mem[95+offset]
-
-
-#d_out_corr[9]= d_in_corr[13]
-get        r2        0                # clear r2
+get        r2        0                #d_out_corr[9]= d_in_corr[13], clear r2
 xor        r2        r1                # move copy of MSW into r2
 shft        r2        0        3        # shift b13 left 3 times, clear upper bits
 shft        r2        1        3        # shift b13 to right 7 times, clear upper bits
@@ -1249,10 +931,7 @@ shft        r2        1        3
 shft        r2        1        1
 get        r3        0                # clear r3 because now in d_out_corr MSW
 xor        r3        r2                # move contents of r2 into r3
-
-
-#d_out_corr[10] = d_in_corr[14]
-get        r2        0                # clear r2
+get        r2        0                #d_out_corr[10] = d_in_corr[14],clear r2
 xor        r2        r1                # move copy of MSW into r2
 shft        r2        0        2        # shift b14 left 2 times, clear upper bits
 shft        r2        1        3        # shift b14 to right 7 times, clear lower bits
@@ -1260,10 +939,7 @@ shft        r2        1        3
 shft        r2        1        1
 shft        r2        0        1        # shift b14 left 1 times into b10 spot
 xor        r3        r2                # move contents of r2 into r3
-
-
-#d_out_corr[11] = d_in_corr[15]
-get        r2        0                # clear r2
+get        r2        0                #d_out_corr[11] = d_in_corr[15],clear r2
 xor        r2        r1                # move copy of MSW into r2
 shft        r2        0        1        # shift b15 left 1 times, clear upper bits
 shft        r2        1        3        # shift b15 to right 7 times, clear lower bits
@@ -1271,35 +947,23 @@ shft        r2        1        3
 shft        r2        1        1
 shft        r2        0        2        # shift b15 left 2 times into b11 spot
 xor        r3        r2                # move contents of r2 into r3
-
-
 get        r2        2                # get value 30
 get        r4        7                # get value 32
 add        r2        r4                # add 30 + 32 = 62
 add        r2        r4                # add 62 + 32 = 94
 add        r2        r0                # add mem + offset
 st        r3        r2                # store d_out_corr LSW into mem[94 +offset]
-#assign d_out_corr[ 4:2] = d_in_corr[ 7:5];
-#get d_in_corr LSW from memory
-get        r1        2                # get 30
+get        r1        2                #assign d_out_corr[ 4:2] = d_in_corr[ 7:5]; get 30
 get        r2        2                #get 30
 add        r2        r1                # get 60 = 30 + 30
 ld        r1        r2                # get d_in_corr MSW into r1 from mem[60]
-
-
-#get d_out_corr LSW from memory mem[94+offset]
-get        r2        2                # get value 30
+get        r2        2                # get d_out_corr LSW from mem[94+offset], get value 30
 get        r4        7                # get value 32
 add        r2        r4                # add 30 + 32 = 62
 add        r2        r4                # add 62 + 32 = 94
 add        r2        r0                #add mem + offset
 ld        r3        r2                # load d_out_corr MSW from mem[94 + offset] in r3
-
-
-
-
-#d_out_corr[2] = d_in_corr[5];
-get        r2        0                # clear r2
+get        r2        0                # d_out_corr[2] = d_in_corr[5]; clear r2
 xor        r2        r1                # move copy of MSW into r2
 shft        r2        0        3        # shift b5 left 3 times, clear upper bits
 shft        r2        1        3        # shift b5 7 times right, clear lower bits
@@ -1307,8 +971,7 @@ shft        r2        1        3
 shft        r2        1        1
 shft        r2        0        1        # shift b5 1 time to left to move into b2 spot
 xor        r3        r2                # move contents of r2 into r3
-#d_out_corr[3] = d_in_corr[6]
-get        r2        0                # clear r2
+get        r2        0                # d_out_corr[3] = d_in_corr[6],clear r2
 xor        r2        r1                # move copy of LSW into r2
 shft        r2        0        2        # shift b6 left 2 times, clear upper bits
 shft        r2        1        3        # shift b6 7 times right, clear lower bits
@@ -1316,8 +979,7 @@ shft        r2        1        3
 shft        r2        1        1
 shft        r2        0        2        # shift b6 2 times to left to move into b3 spot
 xor        r3        r2                # move contents of r2 into r3
-#d_out_corr[4] = d_in_corr[7]
-get        r2        0                # clear r2
+get        r2        0                ##d_out_corr[4] = d_in_corr[7], clear r2
 xor        r2        r1                # move copy of LSW into r2
 shft        r2        0        3        # shift b7 left 1 times, clear upper bits
 shft        r2        1        3        # shift b7 7 times right, clear lower bits
@@ -1325,10 +987,7 @@ shft        r2        1        3
 shft        r2        1        1
 shft        r2        0        3        # shift b7 3 times to left to move into b4 spot
 xor        r3        r2                # move contents of r2 into r3
-
-
-#assign d_out_corr[   1] = d_in_corr[   3];
-get        r2        0                # clear r2
+get        r2        0                #assign d_out_corr[   1] = d_in_corr[   3]; clear r2
 xor        r2        r1                # move copy of LSW into r2
 shft        r2        1        2        # shift b3 right 2 times, clear lower bits
 shft        r2        0        3        # shift b3 7 times to left, clear upper bits
@@ -1338,27 +997,15 @@ shft        r2        1        3        # shift b3 7 times to right to move into
 shft        r2        1        3
 shft        r2        1        1
 xor        r3        r2                # move contents of r2 into r3
-
-
-#get d_out_corr LSW mem[94]
-get        r2        2                # get value 30
+get        r2        2                # get d_out_corr LSW mem[94], get value 30
 get        r4        7                # get value 32
 add        r2        r4                # add 30 + 32 = 62
 add        r2        r4                # add 62 + 32 = 94
 add        r2        r0                # add mem + offset
 st        r3        r2                # store d_out_corr MSW from mem[94 + offset] in r3
-
-
 get        r6        1                # get value 2 into r6
 add        r6        r6
 add        r0        r6                # i += 2 since each word separated by 2 addr
 get        r5        2                # r5 = 30
 xor        r5        r0
-jnz        r5        loop                # if i != 30 then more input to read
-
-
-
-
-
-
-[a]This is never branched back to
+jnz        1                # if i != 30 then more input to read

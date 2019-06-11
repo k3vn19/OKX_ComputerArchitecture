@@ -15,14 +15,14 @@ public class Lab3 {
 
     public static void main(String[] args) {
         try {
-            read(1);
+            read(2);
         } catch (IOException e) {
             System.out.println("Files not read!!!");
         }
 
         // compile the assembly code and write to output files
         try {
-            compile(1);
+            compile(2);
         } catch (IOException e) {
             System.out.println("Unable to write!!!");
         }
@@ -156,8 +156,8 @@ public class Lab3 {
             } else if(opcode.equals("100") || opcode.equals("101")){ // jump statements
                 String jumpImm = getJumpImm(arguments[1]);
                 if(jumpImm != null){
-                    toWrite = opcode + "000" + jumpImm;
-                    toWrite2 = opcode + "_000_" + jumpImm;
+                    toWrite = opcode + jumpImm;
+                    toWrite2 = opcode + "_" +  jumpImm;
                     writer.write(toWrite + "\n");
 
                     // add comments for debug file
@@ -226,8 +226,38 @@ public class Lab3 {
 
     private static String getJumpImm(String line) {
         switch (line) {
-            case "0":
-                return "000";
+            case "0": return "000000";
+            case "1": return "000001";
+            case "2": return "000010";
+            case "3": return "000011";
+            case "4": return "000100";
+            case "5": return "000101";
+            case "6": return "000110";
+            case "7": return "000111";
+            case "8": return "001000";
+            case "9": return "001001";
+            case "10": return "001010";
+            case "11": return "001011";
+            case "12": return "001100";
+            case "13": return "001101";
+            case "14": return "001110";
+            case "15": return "001111";
+            case "16": return "010000";
+            case "17": return "010001";
+            case "18": return "010010";
+            case "19": return "010011";
+            case "20": return "010100";
+            case "21": return "010101";
+            case "22": return "010110";
+            case "23": return "010111";
+            case "24": return "011000";
+            case "25": return "011001";
+            case "26": return "011010";
+            case "27": return "011011";
+            case "28": return "011100";
+            case "29": return "011101";
+            case "30": return "011110";
+            case "31": return "011111";
             default:
                 return null;
         }
