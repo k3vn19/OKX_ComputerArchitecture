@@ -17,8 +17,8 @@ module pc (
     end
     else if (pc_in>1000) halt <= 1;
     else if (pc_in == 349) halt <= 1; // prog 1
-    else if (pc_in == 350) halt <= 1; // prog 2
-    else if (pc_in == 500) halt <= 1; // prog 3
+    else if (pc_in == 679) halt <= 1; // prog 2
+    else if (pc_in == 827) halt <= 1; // prog 3
     else
       pc_out <= pc_in;
   end

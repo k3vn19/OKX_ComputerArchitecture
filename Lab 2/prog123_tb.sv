@@ -86,7 +86,13 @@ initial begin
   $display("start program 2");
   $display();
   for(int i=0; i<15; i++) begin
+    $display("test %d:", i);
+    $display("original:");
     $displayb({5'b0,d2_in[i]});
+    $display("encoded:");
+    $displayb(d2_good[i]);
+    $display("flipped:");
+    $displayb(d2_bad[i]);
     $writeb  (DUT.dm1.core[95+2*i]);
     $displayb(DUT.dm1.core[94+2*i]);  
 	if({5'b0,d2_in[i]}!={DUT.dm1.core[95+2*i],DUT.dm1.core[94+2*i]})
