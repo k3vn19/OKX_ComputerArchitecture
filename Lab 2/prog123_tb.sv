@@ -95,17 +95,17 @@ initial begin
   end
 
 // program 3
-  pat = 4'b0101;//$random;
+  $random(23);
+  pat = $random;//$random;
   str2 = 0;
   DUT.dm1.core[160] = pat;
   for(int i=0; i<32; i++) begin
-    mat_str[i] = 8'b01010101;// $random;
+    mat_str[i] = $random;// $random;
 	  DUT.dm1.core[128+i] = mat_str[i];   
 	  str2 = (str2<<8)+mat_str[i];
   end
   ctb = 0;
   for(int j=0; j<32; j++) begin
-    $display("%b", mat_str[j][3:0]);
     if(pat==mat_str[j][3:0]) ctb++;
     if(pat==mat_str[j][4:1]) ctb++;
     if(pat==mat_str[j][5:2]) ctb++;
@@ -128,12 +128,9 @@ initial begin
   $display();
   $display("start program 3");
   $display();
-  $display("ctb = %d %d",ctb,DUT.dm1.core[192]);
-  if(ctb!=DUT.dm1.core[192]) $display("**** oops!****");
-  $display("cts = %d %d",cts,DUT.dm1.core[193]);
-  if(cts!=DUT.dm1.core[193]) $display("**** oops!****");
-  $display("cto = %d %d",cto,DUT.dm1.core[194]);
-  if(cto!=DUT.dm1.core[194]) $display("**** oops!****");
+  $display("number of patterns w/o byte crossing    = %d %d",ctb,DUT.dm1.core[192]);   //160 max
+  $display("number of bytes w/ at least one pattern = %d %d",cto,DUT.dm1.core[193]);   // 32 max
+  $display("number of patterns w/ byte crossing     = %d %d",cts,DUT.dm1.core[194]);   //253 max
   #10ns $stop;
 end
 

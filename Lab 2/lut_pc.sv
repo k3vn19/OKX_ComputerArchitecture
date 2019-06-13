@@ -42,17 +42,17 @@ module lut_pc(
 	6'b011101:	out = 11'd850;//29
 	6'b011110:	out = 11'd867;//30
 	6'b011111:	out = 11'd877;//31, end of prog 2
-	6'b100000:  out = 11'd23 + offset;//32
-    6'b100001:  out = 11'd33 + offset;//33
-    6'b100010:  out = 11'd43 + offset;//34
-    6'b100011:  out = 11'd53 + offset;//35
-    6'b100100:  out = 11'd64 + offset;//36
-    6'b100101:  out = 11'd9 + offset;//37
-    6'b100110:  out = 11'd106 + offset;//38
-    6'b100111:  out = 11'd121 + offset;//39
-    6'b101000:  out = 11'd137 + offset;//40
-    6'b101001:  out = 11'd84 + offset;//41
-    6'b101010:  out = 11'd69 + offset;//42
+	6'b100000:  out = 11'd20 + offset;//32
+    6'b100001:  out = 11'd30 + offset;//33
+    6'b100010:  out = 11'd40 + offset;//34
+    6'b100011:  out = 11'd50 + offset;//35
+    6'b100100:  out = 11'd61 + offset;//36
+    6'b100101:  out = 11'd7 + offset;//37
+    6'b100110:  out = 11'd103 + offset;//38
+    6'b100111:  out = 11'd118 + offset;//39
+    6'b101000:  out = 11'd134 + offset;//40
+    6'b101001:  out = 11'd81 + offset;//41
+    6'b101010:  out = 11'd66 + offset;//42
 
 	default: out = 16'h0;
   endcase
