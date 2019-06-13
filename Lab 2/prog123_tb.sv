@@ -68,7 +68,7 @@ initial begin
 // program 2
 // generate parity from random 11-bit messages 
   for(int i=0; i<15; i++) begin
-	d2_in[i] = $random;
+	  d2_in[i] = $random;
     p8 = ^d2_in[i][11:5];
     p4 = (^d2_in[i][11:8])^(^d2_in[i][4:2]); 
     p2 = d2_in[i][11]^d2_in[i][10]^d2_in[i][7]^d2_in[i][6]^d2_in[i][4]^d2_in[i][3]^d2_in[i][1];
@@ -76,7 +76,7 @@ initial begin
     d2_good[i] = {d2_in[i][11:5],p8,d2_in[i][4:2],p4,d2_in[i][1],p2,p1};
     flip[i] = $random;
     d2_bad[i] = d2_good[i] ^ (1'b1<<flip[i]);
-	DUT.dm1.core[65+2*i] = {1'b0,d2_bad[i][15:9]};
+	  DUT.dm1.core[65+2*i] = {1'b0,d2_bad[i][15:9]};
     DUT.dm1.core[64+2*i] = {d2_bad[i][8:1]};
   end
   #10ns req   = 1;
