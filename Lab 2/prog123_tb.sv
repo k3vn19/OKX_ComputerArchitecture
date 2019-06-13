@@ -100,11 +100,12 @@ initial begin
   DUT.dm1.core[160] = pat;
   for(int i=0; i<32; i++) begin
     mat_str[i] = 8'b01010101;// $random;
-	DUT.dm1.core[128+i] = mat_str[i];   
-	str2 = (str2<<8)+mat_str[i];
+	  DUT.dm1.core[128+i] = mat_str[i];   
+	  str2 = (str2<<8)+mat_str[i];
   end
   ctb = 0;
   for(int j=0; j<32; j++) begin
+    $display("%b", mat_str[j][3:0]);
     if(pat==mat_str[j][3:0]) ctb++;
     if(pat==mat_str[j][4:1]) ctb++;
     if(pat==mat_str[j][5:2]) ctb++;

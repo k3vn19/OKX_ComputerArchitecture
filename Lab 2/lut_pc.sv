@@ -7,8 +7,10 @@ module lut_pc(
   input jmp,
   output logic[10:0] out);
 
+  logic[10:0] offset = 11'd350;
+
   always_comb case (index)
-	6'b000000:	out = 11'd1;	//0
+	6'b000000:	out = 11'd1;	//0, prog 1
 	6'b000001:	out = 11'd1;	//1
 	6'b000010:	out = 11'd492;	//2
 	6'b000011:	out = 11'd501;//3
@@ -39,7 +41,18 @@ module lut_pc(
 	6'b011100:	out = 11'd841;//28
 	6'b011101:	out = 11'd850;//29
 	6'b011110:	out = 11'd867;//30
-	6'b011111:	out = 11'd877;//31
+	6'b011111:	out = 11'd877;//31, end of prog 2
+	6'b100000:  out = 11'd23 + offset;//32
+    6'b100001:  out = 11'd33 + offset;//33
+    6'b100010:  out = 11'd43 + offset;//34
+    6'b100011:  out = 11'd53 + offset;//35
+    6'b100100:  out = 11'd64 + offset;//36
+    6'b100101:  out = 11'd9 + offset;//37
+    6'b100110:  out = 11'd106 + offset;//38
+    6'b100111:  out = 11'd121 + offset;//39
+    6'b101000:  out = 11'd137 + offset;//40
+    6'b101001:  out = 11'd84 + offset;//41
+    6'b101010:  out = 11'd69 + offset;//42
 
 	default: out = 16'h0;
   endcase
