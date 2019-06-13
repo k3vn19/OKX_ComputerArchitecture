@@ -56,7 +56,4 @@ is for the sake of debugging while machineX.txt is the actual machine code used 
 For grading, the source code will already be compiled. 
 
 ## What Works
-todo
-
-## What Doesn't Work
-todo
+All three of the programs can be run contiuously and produce the correct output. When using the test bench provided on TED running prog123_tb.sv produces all the correct output and additionally during our demo the tutor tested three of his own test cases and the programs produced the correct output. 
