@@ -1,5 +1,4 @@
-﻿
-get        r0        0                # i = 0 for start of for loop
+﻿get        r0        0                # i = 0 for start of for loop
 get        r1        1                #r1 = 1 #LOOP================
 add        r1        r0                # put address of MSW into r1
 ld        r1        r1                # load mem[MSW] into reg r1

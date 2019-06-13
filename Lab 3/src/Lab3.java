@@ -15,14 +15,14 @@ public class Lab3 {
 
     public static void main(String[] args) {
         try {
-            read(3);
+            read(2);
         } catch (IOException e) {
             System.out.println("Files not read!!!");
         }
 
         // compile the assembly code and write to output files
         try {
-            compile(3);
+            compile(2);
         } catch (IOException e) {
             System.out.println("Unable to write!!!");
         }
@@ -269,6 +269,8 @@ public class Lab3 {
             case "40": return "101000";
             case "41": return "101001";
             case "42": return "101010";
+            case "50": return "000000";
+            case "51": return "000000";
             default:
                 return null;
         }
